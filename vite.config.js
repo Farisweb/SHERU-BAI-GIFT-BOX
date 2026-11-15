@@ -3,7 +3,7 @@ import react from '@vitejs/plugin-react';
 
 export default defineConfig({
   plugins: [react()],
-  base: './', // Ensures relative asset paths for GitHub Pages, preview & custom domains
+  base: '/', // Standard root path for Vercel / Netlify production hosting
   resolve: {
     preserveSymlinks: true,
   },
