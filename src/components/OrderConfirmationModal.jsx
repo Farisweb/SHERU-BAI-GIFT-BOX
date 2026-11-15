@@ -1,6 +1,6 @@
 import React, { useEffect } from 'react';
 import confetti from 'canvas-confetti';
-import { CheckCircle, Sparkles, Download, ArrowRight, Truck, Gift, Heart, Printer, Share2 } from 'lucide-react';
+import { Sparkles, ArrowRight, Truck, Gift, Printer } from 'lucide-react';
 
 export default function OrderConfirmationModal({ order, onClose, onTrackOrder }) {
   useEffect(() => {

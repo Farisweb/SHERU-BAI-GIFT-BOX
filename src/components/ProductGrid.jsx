@@ -1,7 +1,7 @@
 import React from 'react';
 import { PRODUCTS } from '../data/products';
 import ProductCard from './ProductCard';
-import { Sparkles, Shield, Gift } from 'lucide-react';
+import { Gift } from 'lucide-react';
 
 export default function ProductGrid({ onBuyNow, onViewDetails }) {
   return (

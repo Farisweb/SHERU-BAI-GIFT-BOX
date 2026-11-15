@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { X, Search, CheckCircle2, Circle, Truck, Package, Heart, Sparkles, MapPin, Calendar, Clock } from 'lucide-react';
+import { X, Search, CheckCircle2, Circle, Clock } from 'lucide-react';
 
 export default function TrackOrderModal({ initialOrderId = '', ordersList = [], onClose }) {
   const [searchQuery, setSearchQuery] = useState(initialOrderId);

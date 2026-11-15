@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, Sparkles, Send, Smile, Gift, Award } from 'lucide-react';
+import { Sparkles, Smile } from 'lucide-react';
 
 export default function StorySection({ onSelectBoxClick }) {
   return (
