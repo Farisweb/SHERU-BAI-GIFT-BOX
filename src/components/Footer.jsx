@@ -1,5 +1,6 @@
 import React from 'react';
 import { Heart, Send, Sparkles, Truck, ShieldCheck, Mail, Phone, MapPin } from 'lucide-react';
+import lionCrest from '../assets/lion-crest.svg';
 
 export default function Footer({ onOpenPolicy, onOpenTrackOrder }) {
   return (
@@ -7,7 +8,7 @@ export default function Footer({ onOpenPolicy, onOpenTrackOrder }) {
       
       {/* Background Crest Watermark */}
       <div className="absolute right-0 bottom-0 w-96 h-96 opacity-5 pointer-events-none">
-        <img src="/lion-crest.svg" alt="crest watermark" className="w-full h-full" />
+        <img src={lionCrest} alt="crest watermark" className="w-full h-full" />
       </div>
 
       {/* Main Footer Content */}
@@ -19,7 +20,7 @@ export default function Footer({ onOpenPolicy, onOpenTrackOrder }) {
             <div className="flex items-center gap-3">
               <div className="w-12 h-12 flex-shrink-0">
                 <img 
-                  src="/lion-crest.svg" 
+                  src={lionCrest} 
                   alt="Sheru Bai White Lion" 
                   className="w-full h-full object-contain"
                 />

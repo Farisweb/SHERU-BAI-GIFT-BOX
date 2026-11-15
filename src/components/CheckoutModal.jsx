@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X, Gift, User, Phone, MapPin, MessageSquare, ShieldCheck, Truck, Sparkles, Check, ArrowRight } from 'lucide-react';
 import { STATES_OF_INDIA } from '../data/products';
 import { checkPinCodeServiceability } from '../data/pincodes';
+import lionCrest from '../assets/lion-crest.svg';
 
 export default function CheckoutModal({ product, onClose, onProceedToPayment }) {
   const [purchaseType, setPurchaseType] = useState('gift'); // 'self' or 'gift'
@@ -403,7 +404,7 @@ export default function CheckoutModal({ product, onClose, onProceedToPayment }) 
               <div className="p-6 rounded-2xl bg-[#FFF8EE] border-2 border-gold-500 shadow-md relative mt-4 space-y-3 animate-in fade-in">
                 <div className="flex items-center justify-between border-b border-gold-300 pb-2">
                   <div className="flex items-center gap-2">
-                    <img src="/lion-crest.svg" alt="Sheru Bai" className="w-6 h-6" />
+                    <img src={lionCrest} alt="Sheru Bai" className="w-6 h-6" />
                     <span className="font-serif text-xs font-bold text-darkbrown-900 tracking-wider">
                       SHERU BAI ROYAL GREETINGS
                     </span>

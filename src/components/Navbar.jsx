@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { Package, Truck, Sparkles, Menu, X, Heart, ShieldCheck, Search } from 'lucide-react';
+import lionCrest from '../assets/lion-crest.svg';
 
 export default function Navbar({ onOpenTrackOrder, onOpenDirectOrder, cartItemCount = 0 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -24,7 +25,7 @@ export default function Navbar({ onOpenTrackOrder, onOpenDirectOrder, cartItemCo
         <a href="#" className="flex items-center gap-3 group">
           <div className="relative w-12 h-12 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
             <img 
-              src="/lion-crest.svg" 
+              src={lionCrest} 
               alt="Sheru Bai White Lion Mascot" 
               className="w-full h-full object-contain drop-shadow-md"
             />

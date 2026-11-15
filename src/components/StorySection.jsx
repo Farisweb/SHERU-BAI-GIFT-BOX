@@ -1,5 +1,6 @@
 import React from 'react';
 import { Sparkles, Smile } from 'lucide-react';
+import lionCrest from '../assets/lion-crest.svg';
 
 export default function StorySection({ onSelectBoxClick }) {
   return (
@@ -7,7 +8,7 @@ export default function StorySection({ onSelectBoxClick }) {
       
       {/* Background Subtle Watermark */}
       <div className="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 opacity-5 pointer-events-none">
-        <img src="/lion-crest.svg" alt="crest motif" className="w-full h-full" />
+        <img src={lionCrest} alt="crest motif" className="w-full h-full" />
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">

@@ -1,6 +1,7 @@
 import React, { useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import { Sparkles, ArrowRight, Truck, Gift, Printer } from 'lucide-react';
+import lionCrest from '../assets/lion-crest.svg';
 
 export default function OrderConfirmationModal({ order, onClose, onTrackOrder }) {
   useEffect(() => {
@@ -46,7 +47,7 @@ export default function OrderConfirmationModal({ order, onClose, onTrackOrder })
         {/* Celebration Header */}
         <div className="bg-gradient-to-r from-burgundy-600 via-burgundy-500 to-burgundy-700 text-cream-100 p-6 sm:p-8 text-center relative overflow-hidden border-b-2 border-gold-400">
           <div className="absolute top-0 right-0 w-32 h-32 opacity-10 pointer-events-none">
-            <img src="/lion-crest.svg" alt="crest" className="w-full h-full" />
+            <img src={lionCrest} alt="crest" className="w-full h-full" />
           </div>
 
           <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-cream-100/10 border-2 border-gold-400 mb-3 shadow-inner">

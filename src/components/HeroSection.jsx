@@ -1,5 +1,6 @@
 import React from 'react';
 import { ArrowRight, Sparkles, Heart, ShieldCheck, Gift } from 'lucide-react';
+import lionCrest from '../assets/lion-crest.svg';
 
 export default function HeroSection({ onExploreClick, onOrderClick }) {
   return (
@@ -105,7 +106,7 @@ export default function HeroSection({ onExploreClick, onOrderClick }) {
                 
                 {/* Top Corner Lion Crest Watermark */}
                 <div className="absolute -top-6 -right-6 w-32 h-32 opacity-10 pointer-events-none">
-                  <img src="/lion-crest.svg" alt="crest watermark" className="w-full h-full" />
+                  <img src={lionCrest} alt="crest watermark" className="w-full h-full" />
                 </div>
 
                 {/* Hero Showcase Image */}
