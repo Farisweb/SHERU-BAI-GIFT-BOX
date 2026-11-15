@@ -1,5 +1,5 @@
 import React from 'react';
-import { Heart, Send, Sparkles, Truck, ShieldCheck, Mail, Phone, MapPin } from 'lucide-react';
+import { Heart, Send, Truck } from 'lucide-react';
 import lionCrest from '../assets/lion-crest.svg';
 
 export default function Footer({ onOpenPolicy, onOpenTrackOrder }) {
@@ -43,7 +43,7 @@ export default function Footer({ onOpenPolicy, onOpenTrackOrder }) {
             {/* Social Links */}
             <div className="pt-2 flex items-center gap-3">
               <a
-                href="https://instagram.com"
+                href="https://www.instagram.com/sheru_baaai?vrfl=dHVkOGIxdG10Yjhk"
                 target="_blank"
                 rel="noreferrer"
                 className="w-10 h-10 rounded-full bg-cream-100/10 hover:bg-gold-500 hover:text-darkbrown-900 border border-gold-500/40 flex items-center justify-center transition-all text-cream-100"
@@ -52,7 +52,7 @@ export default function Footer({ onOpenPolicy, onOpenTrackOrder }) {
                 <span className="text-base">📸</span>
               </a>
               <a
-                href="https://t.me"
+                href="https://t.me/sherubaai"
                 target="_blank"
                 rel="noreferrer"
                 className="w-10 h-10 rounded-full bg-cream-100/10 hover:bg-gold-500 hover:text-darkbrown-900 border border-gold-500/40 flex items-center justify-center transition-all text-cream-100"
@@ -61,7 +61,7 @@ export default function Footer({ onOpenPolicy, onOpenTrackOrder }) {
                 <Send className="w-4 h-4" />
               </a>
               <span className="text-xs text-gold-300 font-medium ml-2">
-                Join our @sherubaigiftbox family
+                Connect on Instagram & Telegram: @sheru_baaai
               </span>
             </div>
           </div>
@@ -166,17 +166,26 @@ export default function Footer({ onOpenPolicy, onOpenTrackOrder }) {
               Reach Out
             </h4>
             <div className="space-y-2 text-xs text-cream-200/80">
-              <p className="flex items-center gap-2">
-                <Phone className="w-3.5 h-3.5 text-gold-400 flex-shrink-0" />
-                <span>+91 98765 43210</span>
-              </p>
-              <p className="flex items-center gap-2">
-                <Mail className="w-3.5 h-3.5 text-gold-400 flex-shrink-0" />
-                <span>care@sherubaigiftbox.com</span>
-              </p>
-              <p className="flex items-start gap-2 pt-1">
-                <MapPin className="w-3.5 h-3.5 text-gold-400 flex-shrink-0 mt-0.5" />
-                <span>Sheru Bai Atelier, Mumbai, Maharashtra, India</span>
+              <a 
+                href="https://t.me/sherubaai" 
+                target="_blank" 
+                rel="noreferrer"
+                className="flex items-center gap-2 hover:text-gold-300 transition-colors"
+              >
+                <Send className="w-3.5 h-3.5 text-gold-400 flex-shrink-0" />
+                <span>Telegram: @sherubaai</span>
+              </a>
+              <a 
+                href="https://www.instagram.com/sheru_baaai?vrfl=dHVkOGIxdG10Yjhk" 
+                target="_blank" 
+                rel="noreferrer"
+                className="flex items-center gap-2 hover:text-gold-300 transition-colors"
+              >
+                <span className="text-xs">📸</span>
+                <span>Instagram: @sheru_baaai</span>
+              </a>
+              <p className="text-[11px] text-cream-200/60 pt-1 leading-snug">
+                Customer Support: Mon - Sat, 9:00 AM - 8:00 PM IST
               </p>
             </div>
 

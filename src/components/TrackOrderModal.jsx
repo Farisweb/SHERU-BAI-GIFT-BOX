@@ -266,7 +266,7 @@ export default function TrackOrderModal({ initialOrderId = '', ordersList = [], 
             <div className="p-3.5 rounded-xl bg-gold-50 border border-gold-300 text-xs text-darkbrown-800 flex items-center gap-2.5">
               <span className="text-lg">🦁</span>
               <span>
-                Need help with your gift delivery? Contact Sheru Bai Customer Care on WhatsApp at <strong>+91 98765 43210</strong>.
+                Need help with your gift delivery? Contact Sheru Bai Customer Care on Telegram (<strong>t.me/sherubaai</strong>) or Instagram (<strong>@sheru_baaai</strong>).
               </span>
             </div>
 

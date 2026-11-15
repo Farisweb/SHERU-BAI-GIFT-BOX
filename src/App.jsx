@@ -34,9 +34,9 @@ export default function App() {
     return [{
       orderId: 'SB-882194',
       customerName: 'Priya Sharma',
-      customerPhone: '9876543210',
+      customerPhone: '9000000000',
       recipientName: 'Aarav Sharma',
-      recipientPhone: '9812345678',
+      recipientPhone: '9111111111',
       purchaseType: 'gift',
       product: PRODUCTS[2], // Gold Box
       amount: 499,

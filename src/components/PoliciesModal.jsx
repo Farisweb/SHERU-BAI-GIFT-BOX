@@ -99,45 +99,53 @@ export default function PoliciesModal({ initialTab = 'about', onClose }) {
                 Get in Touch with Sheru Bai
               </h4>
               <p>
-                Have a question about an existing order or need help with a custom gifting arrangement? Our customer happiness team is here for you 7 days a week.
+                Have a question about an existing order or need help with a custom gifting arrangement? Our customer happiness team is available directly on our official social channels.
               </p>
               
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 pt-2">
-                <div className="p-4 rounded-2xl bg-white border border-gold-200 space-y-1">
-                  <div className="text-xs font-bold text-burgundy-700 flex items-center gap-1.5">
-                    <Phone className="w-4 h-4 text-gold-600" />
-                    <span>WhatsApp & Phone Support</span>
+                <a 
+                  href="https://t.me/sherubaai"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-4 rounded-2xl bg-white border border-gold-300 hover:border-gold-500 hover:shadow-md transition-all space-y-1 block group"
+                >
+                  <div className="text-xs font-bold text-burgundy-700 flex items-center justify-between">
+                    <span className="flex items-center gap-1.5">
+                      <Send className="w-4 h-4 text-gold-600 group-hover:translate-x-0.5 transition-transform" />
+                      <span>Official Telegram Support</span>
+                    </span>
+                    <span className="text-[10px] bg-gold-100 text-gold-900 px-2 py-0.5 rounded-full font-semibold">Fast Response</span>
                   </div>
-                  <p className="text-xs text-darkbrown-900 font-semibold">+91 98765 43210</p>
-                  <p className="text-[11px] text-darkbrown-500">Mon - Sat: 9:00 AM - 8:00 PM IST</p>
-                </div>
+                  <p className="text-xs text-darkbrown-900 font-bold">@sherubaai</p>
+                  <p className="text-[11px] text-darkbrown-600">t.me/sherubaai • Direct chat & order tracking support</p>
+                </a>
 
-                <div className="p-4 rounded-2xl bg-white border border-gold-200 space-y-1">
-                  <div className="text-xs font-bold text-burgundy-700 flex items-center gap-1.5">
-                    <Mail className="w-4 h-4 text-gold-600" />
-                    <span>Email Support</span>
+                <a 
+                  href="https://www.instagram.com/sheru_baaai?vrfl=dHVkOGIxdG10Yjhk"
+                  target="_blank"
+                  rel="noreferrer"
+                  className="p-4 rounded-2xl bg-white border border-gold-300 hover:border-gold-500 hover:shadow-md transition-all space-y-1 block group"
+                >
+                  <div className="text-xs font-bold text-burgundy-700 flex items-center justify-between">
+                    <span className="flex items-center gap-1.5">
+                      <span className="text-sm">📸</span>
+                      <span>Official Instagram</span>
+                    </span>
+                    <span className="text-[10px] bg-gold-100 text-gold-900 px-2 py-0.5 rounded-full font-semibold">Community</span>
                   </div>
-                  <p className="text-xs text-darkbrown-900 font-semibold">care@sherubaigiftbox.com</p>
-                  <p className="text-[11px] text-darkbrown-500">Replies within 2 to 4 business hours</p>
-                </div>
+                  <p className="text-xs text-darkbrown-900 font-bold">@sheru_baaai</p>
+                  <p className="text-[11px] text-darkbrown-600">Direct message for inquiries & unboxing highlights</p>
+                </a>
+              </div>
 
-                <div className="p-4 rounded-2xl bg-white border border-gold-200 space-y-1">
-                  <div className="text-xs font-bold text-burgundy-700 flex items-center gap-1.5">
-                    <Send className="w-4 h-4 text-gold-600" />
-                    <span>Official Telegram Community</span>
-                  </div>
-                  <p className="text-xs text-darkbrown-900 font-semibold">t.me/sherubaigiftbox</p>
-                  <p className="text-[11px] text-darkbrown-500">Live order support & special festive announcements</p>
+              <div className="p-4 rounded-xl bg-gold-50 border border-gold-300 text-xs text-darkbrown-800 space-y-1">
+                <div className="font-bold text-darkbrown-900 flex items-center gap-1.5">
+                  <span>⏱️</span>
+                  <span>Customer Support Hours:</span>
                 </div>
-
-                <div className="p-4 rounded-2xl bg-white border border-gold-200 space-y-1">
-                  <div className="text-xs font-bold text-burgundy-700 flex items-center gap-1.5">
-                    <span>📸</span>
-                    <span>Instagram Official</span>
-                  </div>
-                  <p className="text-xs text-darkbrown-900 font-semibold">@sherubaigiftbox</p>
-                  <p className="text-[11px] text-darkbrown-500">Share your unboxing reels with #SheruBaiMoments</p>
-                </div>
+                <p className="text-[11px] text-darkbrown-700">
+                  Monday to Saturday: 9:00 AM – 8:00 PM IST. We strive to reply to all Telegram and Instagram messages promptly.
+                </p>
               </div>
             </div>
           )}
@@ -173,7 +181,7 @@ export default function PoliciesModal({ initialTab = 'about', onClose }) {
               </p>
               <ul className="list-disc pl-5 space-y-2">
                 <li>
-                  <strong>Damaged in Transit:</strong> If your gift box arrives damaged or tampered with, share a picture within 48 hours of delivery to <code>care@sherubaigiftbox.com</code> or our WhatsApp, and we will dispatch a free replacement or initiate an immediate full refund.
+                  <strong>Damaged in Transit:</strong> If your gift box arrives damaged or tampered with, share a picture within 48 hours of delivery to our official Telegram (<code>@sherubaai</code>) or Instagram DM (<code>@sheru_baaai</code>), and we will dispatch a free replacement or initiate an immediate full refund.
                 </li>
                 <li>
                   <strong>Cancellation Window:</strong> Orders may be cancelled within 2 hours of placement before our atelier prepares and seals the custom message card.

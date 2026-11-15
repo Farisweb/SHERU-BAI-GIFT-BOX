@@ -61,7 +61,7 @@ An e-commerce web platform designed for **SHERU BAI GIFT BOX**, crafted with a l
 
 6. **Footer & Legal Policies**:
    - Complete modals for **About Us**, **Contact Us**, **Privacy Policy**, **Refund & Cancellation Policy**, **Terms & Conditions**, and **Shipping Policy**.
-   - Direct Instagram (`@sherubaigiftbox`) and Telegram links.
+   - Direct Instagram ([@sheru_baaai](https://www.instagram.com/sheru_baaai?vrfl=dHVkOGIxdG10Yjhk)) and Telegram ([@sherubaai](https://t.me/sherubaai)) links.
    - Reassurance of **zero hidden fees, no subscriptions, and no lottery models**.
 
 ---
