@@ -1,0 +1,73 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  body {
+    background-color: #FFF9F0;
+    color: #30251F;
+    font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+  }
+
+  h1, h2, h3, h4, .font-serif {
+    font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+  }
+}
+
+/* Custom Gold Foil & Shimmer Effects */
+.gold-gradient-text {
+  background: linear-gradient(135deg, #A88544 0%, #C6A15B 40%, #F5ECDA 60%, #C6A15B 80%, #8E6F33 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+}
+
+.gold-gradient-bg {
+  background: linear-gradient(135deg, #DFC286 0%, #C6A15B 50%, #B08B46 100%);
+}
+
+.burgundy-gradient-bg {
+  background: linear-gradient(135deg, #681C32 0%, #531427 60%, #400D1C 100%);
+}
+
+.cream-card {
+  background-color: #FFFDF9;
+  border: 1px solid rgba(198, 161, 91, 0.25);
+  box-shadow: 0 10px 30px -5px rgba(48, 37, 31, 0.05), 0 4px 12px -2px rgba(198, 161, 91, 0.08);
+}
+
+.cream-card:hover {
+  border-color: rgba(198, 161, 91, 0.5);
+  box-shadow: 0 20px 40px -10px rgba(48, 37, 31, 0.12), 0 8px 24px -4px rgba(198, 161, 91, 0.2);
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
+  background: #FFF9F0;
+}
+::-webkit-scrollbar-thumb {
+  background: #C6A15B;
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: #681C32;
+}
+
+/* Luxury Card Wax Seal Style */
+.wax-seal {
+  width: 52px;
+  height: 52px;
+  border-radius: 50%;
+  background: radial-gradient(circle at 35% 35%, #9F3656 0%, #681C32 60%, #400D1C 100%);
+  box-shadow: 0 4px 12px rgba(104, 28, 50, 0.4), inset 0 2px 4px rgba(255, 255, 255, 0.3), inset 0 -2px 4px rgba(0, 0, 0, 0.5);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: 2px solid #C6A15B;
+}
