@@ -1,14 +1,14 @@
 import React from 'react';
 import { Heart, Send, Truck } from 'lucide-react';
-import lionCrest from '../assets/lion-crest.svg';
+import brandLogo from '../assets/sheru-baai-logo.jpg';
 
 export default function Footer({ onOpenPolicy, onOpenTrackOrder }) {
   return (
     <footer className="bg-darkbrown-950 text-cream-100 border-t-2 border-gold-500/40 relative overflow-hidden">
       
       {/* Background Crest Watermark */}
-      <div className="absolute right-0 bottom-0 w-96 h-96 opacity-5 pointer-events-none">
-        <img src={lionCrest} alt="crest watermark" className="w-full h-full" />
+      <div className="absolute right-0 bottom-0 w-96 h-96 opacity-10 pointer-events-none rounded-full overflow-hidden">
+        <img src={brandLogo} alt="crest watermark" className="w-full h-full object-cover" />
       </div>
 
       {/* Main Footer Content */}
@@ -18,16 +18,16 @@ export default function Footer({ onOpenPolicy, onOpenTrackOrder }) {
           {/* Col 1: Brand & Mascot (5 cols) */}
           <div className="lg:col-span-5 space-y-4">
             <div className="flex items-center gap-3">
-              <div className="w-12 h-12 flex-shrink-0">
+              <div className="w-14 h-14 rounded-2xl overflow-hidden border-2 border-gold-400 shadow-lg flex-shrink-0 bg-black">
                 <img 
-                  src={lionCrest} 
-                  alt="Sheru Bai White Lion" 
-                  className="w-full h-full object-contain"
+                  src={brandLogo} 
+                  alt="Sheru Baai Logo" 
+                  className="w-full h-full object-cover"
                 />
               </div>
               <div>
                 <span className="font-serif text-2xl font-bold tracking-wider text-cream-100 flex items-center gap-1.5">
-                  SHERU BAI <span className="text-gold-400">GIFT BOX</span>
+                  SHERU BAAI <span className="text-gold-400">GIFT BOX</span>
                   <span>🦁</span>
                 </span>
                 <span className="text-xs text-gold-300 font-serif tracking-widest uppercase block font-semibold">

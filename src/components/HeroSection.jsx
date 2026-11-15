@@ -1,6 +1,6 @@
 import React from 'react';
 import { ArrowRight, Sparkles, Heart, ShieldCheck, Gift } from 'lucide-react';
-import lionCrest from '../assets/lion-crest.svg';
+import brandLogo from '../assets/sheru-baai-logo.jpg';
 
 export default function HeroSection({ onExploreClick, onOrderClick }) {
   return (
@@ -105,8 +105,8 @@ export default function HeroSection({ onExploreClick, onOrderClick }) {
               <div className="relative bg-cream-50 rounded-3xl p-6 sm:p-8 border-2 border-gold-500/40 shadow-2xl overflow-hidden">
                 
                 {/* Top Corner Lion Crest Watermark */}
-                <div className="absolute -top-6 -right-6 w-32 h-32 opacity-10 pointer-events-none">
-                  <img src={lionCrest} alt="crest watermark" className="w-full h-full" />
+                <div className="absolute -top-6 -right-6 w-32 h-32 opacity-20 pointer-events-none rounded-full overflow-hidden">
+                  <img src={brandLogo} alt="crest watermark" className="w-full h-full object-cover" />
                 </div>
 
                 {/* Hero Showcase Image */}
@@ -135,9 +135,9 @@ export default function HeroSection({ onExploreClick, onOrderClick }) {
                         Handcrafted with Love in Every Ribbon
                       </p>
                     </div>
-                    {/* Wax Seal Emblem */}
-                    <div className="wax-seal flex-shrink-0">
-                      <span className="text-xs">🦁</span>
+                    {/* Official Brand Seal */}
+                    <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-gold-500 shadow-md flex-shrink-0 bg-black">
+                      <img src={brandLogo} alt="Sheru Baai Seal" className="w-full h-full object-cover" />
                     </div>
                   </div>
 

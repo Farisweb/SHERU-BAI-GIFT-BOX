@@ -1,7 +1,7 @@
 import React, { useEffect } from 'react';
 import confetti from 'canvas-confetti';
 import { Sparkles, ArrowRight, Truck, Gift, Printer } from 'lucide-react';
-import lionCrest from '../assets/lion-crest.svg';
+import brandLogo from '../assets/sheru-baai-logo.jpg';
 
 export default function OrderConfirmationModal({ order, onClose, onTrackOrder }) {
   useEffect(() => {
@@ -46,12 +46,12 @@ export default function OrderConfirmationModal({ order, onClose, onTrackOrder })
       >
         {/* Celebration Header */}
         <div className="bg-gradient-to-r from-burgundy-600 via-burgundy-500 to-burgundy-700 text-cream-100 p-6 sm:p-8 text-center relative overflow-hidden border-b-2 border-gold-400">
-          <div className="absolute top-0 right-0 w-32 h-32 opacity-10 pointer-events-none">
-            <img src={lionCrest} alt="crest" className="w-full h-full" />
+          <div className="absolute top-0 right-0 w-32 h-32 opacity-20 pointer-events-none rounded-full overflow-hidden">
+            <img src={brandLogo} alt="crest" className="w-full h-full object-cover" />
           </div>
 
-          <div className="inline-flex items-center justify-center w-16 h-16 rounded-full bg-cream-100/10 border-2 border-gold-400 mb-3 shadow-inner">
-            <span className="text-3xl">🦁</span>
+          <div className="inline-flex items-center justify-center w-20 h-20 rounded-full overflow-hidden border-2 border-gold-400 mb-3 shadow-lg bg-black">
+            <img src={brandLogo} alt="Sheru Baai" className="w-full h-full object-cover" />
           </div>
 
           <div className="inline-flex items-center gap-1.5 px-3.5 py-1 rounded-full bg-gold-500/20 border border-gold-300 text-gold-300 text-xs font-serif font-bold uppercase tracking-wider mb-2">

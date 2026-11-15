@@ -1,14 +1,14 @@
 import React from 'react';
 import { Sparkles, Smile } from 'lucide-react';
-import lionCrest from '../assets/lion-crest.svg';
+import brandLogo from '../assets/sheru-baai-logo.jpg';
 
 export default function StorySection({ onSelectBoxClick }) {
   return (
     <section id="story" className="py-16 md:py-24 bg-cream-50/70 border-y border-gold-500/20 relative overflow-hidden">
       
       {/* Background Subtle Watermark */}
-      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 opacity-5 pointer-events-none">
-        <img src={lionCrest} alt="crest motif" className="w-full h-full" />
+      <div className="absolute right-0 top-1/2 -translate-y-1/2 w-96 h-96 opacity-10 pointer-events-none rounded-full overflow-hidden">
+        <img src={brandLogo} alt="crest motif" className="w-full h-full object-cover" />
       </div>
 
       <div className="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -30,8 +30,8 @@ export default function StorySection({ onSelectBoxClick }) {
         <div className="relative cream-card rounded-3xl p-8 sm:p-12 md:p-16 border-2 border-gold-500/30">
           
           {/* Top Left Floating Quotation Ornament */}
-          <div className="absolute -top-5 left-10 wax-seal">
-            <span className="text-sm">🦁</span>
+          <div className="absolute -top-6 left-10 w-12 h-12 rounded-full overflow-hidden border-2 border-gold-500 shadow-md bg-black">
+            <img src={brandLogo} alt="Sheru Baai Seal" className="w-full h-full object-cover" />
           </div>
 
           <div className="space-y-6 text-darkbrown-900 leading-relaxed sm:text-lg">

@@ -2,7 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { X, Gift, User, Phone, MapPin, MessageSquare, ShieldCheck, Truck, Sparkles, Check, ArrowRight } from 'lucide-react';
 import { STATES_OF_INDIA } from '../data/products';
 import { checkPinCodeServiceability } from '../data/pincodes';
-import lionCrest from '../assets/lion-crest.svg';
+import brandLogo from '../assets/sheru-baai-logo.jpg';
 
 export default function CheckoutModal({ product, onClose, onProceedToPayment }) {
   const [purchaseType, setPurchaseType] = useState('gift'); // 'self' or 'gift'
@@ -106,8 +106,8 @@ export default function CheckoutModal({ product, onClose, onProceedToPayment }) 
         {/* Header */}
         <div className="bg-burgundy-500 text-cream-100 p-5 sm:p-6 flex items-center justify-between border-b border-gold-400">
           <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-burgundy-700 border border-gold-400 flex items-center justify-center text-xl flex-shrink-0">
-              🦁
+            <div className="w-10 h-10 rounded-full overflow-hidden border border-gold-400 bg-black flex items-center justify-center flex-shrink-0">
+              <img src={brandLogo} alt="Sheru Baai Logo" className="w-full h-full object-cover" />
             </div>
             <div>
               <h3 className="font-serif text-lg sm:text-xl font-bold tracking-wide">
@@ -404,9 +404,11 @@ export default function CheckoutModal({ product, onClose, onProceedToPayment }) 
               <div className="p-6 rounded-2xl bg-[#FFF8EE] border-2 border-gold-500 shadow-md relative mt-4 space-y-3 animate-in fade-in">
                 <div className="flex items-center justify-between border-b border-gold-300 pb-2">
                   <div className="flex items-center gap-2">
-                    <img src={lionCrest} alt="Sheru Bai" className="w-6 h-6" />
+                    <div className="w-8 h-8 rounded-full overflow-hidden border border-gold-500 bg-black flex-shrink-0">
+                      <img src={brandLogo} alt="Sheru Baai" className="w-full h-full object-cover" />
+                    </div>
                     <span className="font-serif text-xs font-bold text-darkbrown-900 tracking-wider">
-                      SHERU BAI ROYAL GREETINGS
+                      SHERU BAAI ROYAL GREETINGS
                     </span>
                   </div>
                   <span className="text-[10px] text-gold-700 uppercase tracking-widest font-serif font-bold">
@@ -423,8 +425,8 @@ export default function CheckoutModal({ product, onClose, onProceedToPayment }) 
                 </div>
 
                 <div className="flex items-center justify-center pt-2">
-                  <div className="wax-seal w-10 h-10 border border-gold-400">
-                    <span className="text-xs">🦁</span>
+                  <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-gold-500 shadow-md bg-black">
+                    <img src={brandLogo} alt="Sheru Baai Seal" className="w-full h-full object-cover" />
                   </div>
                 </div>
               </div>

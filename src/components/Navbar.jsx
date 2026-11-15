@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Package, Truck, Sparkles, Menu, X, Heart, ShieldCheck, Search } from 'lucide-react';
-import lionCrest from '../assets/lion-crest.svg';
+import brandLogo from '../assets/sheru-baai-logo.jpg';
 
 export default function Navbar({ onOpenTrackOrder, onOpenDirectOrder, cartItemCount = 0 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
@@ -23,16 +23,16 @@ export default function Navbar({ onOpenTrackOrder, onOpenDirectOrder, cartItemCo
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
         {/* Brand Logo & Mascot */}
         <a href="#" className="flex items-center gap-3 group">
-          <div className="relative w-12 h-12 flex-shrink-0 transition-transform duration-300 group-hover:scale-105">
+          <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-gold-500 shadow-md group-hover:scale-105 transition-transform flex-shrink-0 bg-darkbrown-950">
             <img 
-              src={lionCrest} 
-              alt="Sheru Bai White Lion Mascot" 
-              className="w-full h-full object-contain drop-shadow-md"
+              src={brandLogo} 
+              alt="Sheru Baai Gift Box Logo" 
+              className="w-full h-full object-cover"
             />
           </div>
           <div className="flex flex-col">
             <span className="font-serif text-xl sm:text-2xl font-bold tracking-wider text-darkbrown-900 group-hover:text-burgundy-500 transition-colors flex items-center gap-1.5">
-              SHERU BAI <span className="text-gold-500">GIFT BOX</span>
+              SHERU BAAI <span className="text-gold-500">GIFT BOX</span>
               <span className="text-base">🦁</span>
             </span>
             <span className="text-[11px] sm:text-xs text-gold-700 tracking-widest uppercase font-semibold font-serif">
