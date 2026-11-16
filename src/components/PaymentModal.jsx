@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X, ShieldCheck, QrCode, CreditCard, Building2, CheckCircle2, Lock, ArrowRight, Loader2, Sparkles } from 'lucide-react';
+import { orderService } from '../services/orderService';
 
 export default function PaymentModal({ orderData, onClose, onPaymentSuccess }) {
   const [activeTab, setActiveTab] = useState('upi'); // 'upi', 'card', 'netbanking'
@@ -41,10 +42,10 @@ export default function PaymentModal({ orderData, onClose, onPaymentSuccess }) {
     // Simulate realistic bank / gateway round-trip latency
     setTimeout(() => {
       setIsProcessing(false);
-      const randomOrderId = `SB-${Math.floor(100000 + Math.random() * 900000)}`;
+      const sequentialOrderId = orderService.getNextOrderId();
       const completedOrder = {
         ...orderData,
-        orderId: randomOrderId,
+        orderId: sequentialOrderId,
         paymentMethod: activeTab.toUpperCase(),
         paymentStatus: 'SUCCESS',
         transactionId: `TXN_${Date.now()}`,

@@ -12,12 +12,14 @@ export default function TrackOrderModal({ initialOrderId = '', ordersList = [], 
     
     // Default sample demonstration order
     return {
-      orderId: 'SB-882194',
+      orderId: 'SB-1001',
       customerName: 'Priya Sharma',
       recipientName: 'Aarav Sharma',
       purchaseType: 'gift',
       product: { name: 'Gold Box', icon: '🥇', price: 499 },
-      amount: 499,
+      productPrice: 499,
+      deliveryCharge: 49,
+      amount: 548,
       deliveryAddress: {
         addressLine: 'A-304, Royal Palms, Bandra West',
         city: 'Mumbai',
@@ -52,15 +54,17 @@ export default function TrackOrderModal({ initialOrderId = '', ordersList = [], 
 
     if (matched) {
       setActiveOrder(matched);
-    } else if (query === 'sb-882194' || query.includes('882194')) {
+    } else if (query === 'sb-1001' || query.includes('1001') || query === 'sb-882194' || query.includes('882194')) {
       // Sample tracking order
       setActiveOrder({
-        orderId: 'SB-882194',
+        orderId: 'SB-1001',
         customerName: 'Priya Sharma',
         recipientName: 'Aarav Sharma',
         purchaseType: 'gift',
         product: { name: 'Gold Box', icon: '🥇', price: 499 },
-        amount: 499,
+        productPrice: 499,
+        deliveryCharge: 49,
+        amount: 548,
         deliveryAddress: {
           addressLine: 'A-304, Royal Palms, Bandra West',
           city: 'Mumbai',
@@ -74,7 +78,7 @@ export default function TrackOrderModal({ initialOrderId = '', ordersList = [], 
         courier: 'Bluedart Express'
       });
     } else {
-      setErrorMessage(`No order found matching "${searchQuery}". Please check your Order ID (e.g. SB-123456) or phone number.`);
+      setErrorMessage(`No order found matching "${searchQuery}". Please check your Order ID (e.g. SB-1001) or phone number.`);
     }
   };
 
@@ -152,7 +156,7 @@ export default function TrackOrderModal({ initialOrderId = '', ordersList = [], 
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Order ID (e.g. SB-882194) or Mobile"
+                placeholder="Order ID (e.g. SB-1001) or Mobile"
                 className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gold-300 bg-white text-darkbrown-900 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-burgundy-500 shadow-xs"
               />
             </div>
@@ -174,12 +178,12 @@ export default function TrackOrderModal({ initialOrderId = '', ordersList = [], 
             <button
               type="button"
               onClick={() => {
-                setSearchQuery('SB-882194');
+                setSearchQuery('SB-1001');
                 setErrorMessage('');
               }}
-              className="text-burgundy-600 underline font-medium hover:text-burgundy-700"
+              className="text-burgundy-600 underline font-medium hover:text-burgundy-700 touch-press"
             >
-              Load Sample Active Order (SB-882194)
+              Load Sample Active Order (SB-1001)
             </button>
           </div>
         </div>

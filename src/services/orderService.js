@@ -38,14 +38,16 @@ export const ORDER_STATUS_STEPS = [
 export const getInitialOrders = () => {
   return [
     {
-      orderId: 'SB-882194',
+      orderId: 'SB-1001',
       customerName: 'Priya Sharma',
       customerPhone: '9000000000',
       recipientName: 'Aarav Sharma',
       recipientPhone: '9111111111',
       purchaseType: 'gift',
       product: PRODUCTS[2], // Gold Box
-      amount: 499,
+      productPrice: 499,
+      deliveryCharge: 49,
+      amount: 548,
       deliveryAddress: {
         addressLine: 'A-304, Royal Palms, Bandra West',
         city: 'Mumbai',
@@ -63,13 +65,15 @@ export const getInitialOrders = () => {
       awbNumber: 'EXP8821943IN'
     },
     {
-      orderId: 'SB-743120',
+      orderId: 'SB-1002',
       customerName: 'Rohit Varma',
       customerPhone: '9222222222',
       recipientName: 'Sneha Menon',
       recipientPhone: '9333333333',
       purchaseType: 'gift',
       product: PRODUCTS[3], // Premium Box
+      productPrice: 999,
+      deliveryCharge: 0,
       amount: 999,
       deliveryAddress: {
         addressLine: '12B, Palm Grove Residency, Indiranagar',
@@ -113,10 +117,50 @@ export const orderService = {
     }
   },
 
+  getNextOrderId() {
+    const SEQ_KEY = 'sherubai_order_sequence';
+    let currentSeq = 1002;
+
+    try {
+      const saved = localStorage.getItem(SEQ_KEY);
+      if (saved) {
+        currentSeq = parseInt(saved, 10);
+      }
+    } catch (e) {}
+
+    // Cross-verify with existing orders so sequence never repeats or regresses
+    try {
+      const data = localStorage.getItem(STORAGE_KEY);
+      if (data) {
+        const orders = JSON.parse(data);
+        if (Array.isArray(orders)) {
+          orders.forEach(o => {
+            const matches = (o.orderId || '').match(/\d+/g);
+            if (matches) {
+              const num = parseInt(matches[matches.length - 1], 10);
+              if (!isNaN(num) && num >= 1000 && num > currentSeq && num < 100000) {
+                currentSeq = num;
+              }
+            }
+          });
+        }
+      }
+    } catch (e) {}
+
+    const nextSeq = currentSeq + 1;
+    try {
+      localStorage.setItem(SEQ_KEY, nextSeq.toString());
+    } catch (e) {}
+
+    return `SB-${nextSeq}`;
+  },
+
   createOrder(orderData) {
     const orders = this.getOrders();
+    const orderId = orderData.orderId || this.getNextOrderId();
     const newOrder = {
       ...orderData,
+      orderId,
       currentStep: 0, // Order Confirmed
       courier: 'Bluedart Air Express',
       awbNumber: `EXP${Math.floor(1000000 + Math.random() * 9000000)}IN`,
