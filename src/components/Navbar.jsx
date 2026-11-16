@@ -1,9 +1,32 @@
-import React, { useState } from 'react';
+import React, { useState, useRef } from 'react';
 import { Package, Truck, Sparkles, Menu, X, Heart, ShieldCheck, Search } from 'lucide-react';
 import brandLogo from '../assets/sheru-baai-logo.jpg';
 
-export default function Navbar({ onOpenTrackOrder, onOpenDirectOrder, cartItemCount = 0 }) {
+export default function Navbar({ onOpenTrackOrder, onOpenDirectOrder, onSecretAdminTrigger, cartItemCount = 0 }) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+  const clickCountRef = useRef(0);
+  const clickTimerRef = useRef(null);
+
+  const handleLogoClick = (e) => {
+    clickCountRef.current += 1;
+
+    if (clickTimerRef.current) {
+      clearTimeout(clickTimerRef.current);
+    }
+
+    if (clickCountRef.current >= 3) {
+      e.preventDefault();
+      clickCountRef.current = 0;
+      if (onSecretAdminTrigger) {
+        onSecretAdminTrigger();
+      }
+      return;
+    }
+
+    clickTimerRef.current = setTimeout(() => {
+      clickCountRef.current = 0;
+    }, 1500);
+  };
 
   return (
     <header className="sticky top-0 z-40 bg-cream-100/95 backdrop-blur-md border-b border-gold-500/25 shadow-sm transition-all">
@@ -21,8 +44,13 @@ export default function Navbar({ onOpenTrackOrder, onOpenDirectOrder, cartItemCo
       </div>
 
       <nav className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-        {/* Brand Logo & Mascot */}
-        <a href="#" className="flex items-center gap-3 group">
+        {/* Brand Logo & Mascot (Triple-click activates hidden admin portal) */}
+        <a 
+          href="#" 
+          onClick={handleLogoClick}
+          title="Sheru Baai Gift Box"
+          className="flex items-center gap-3 group select-none cursor-pointer"
+        >
           <div className="relative w-12 h-12 sm:w-14 sm:h-14 rounded-full overflow-hidden border-2 border-gold-500 shadow-md group-hover:scale-105 transition-transform flex-shrink-0 bg-darkbrown-950">
             <img 
               src={brandLogo} 

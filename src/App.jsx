@@ -10,8 +10,11 @@ import PaymentModal from './components/PaymentModal';
 import OrderConfirmationModal from './components/OrderConfirmationModal';
 import TrackOrderModal from './components/TrackOrderModal';
 import PoliciesModal from './components/PoliciesModal';
+import AdminAuthModal from './components/admin/AdminAuthModal';
+import AdminDashboard from './components/admin/AdminDashboard';
 import Footer from './components/Footer';
 import { PRODUCTS } from './data/products';
+import { orderService } from './services/orderService';
 
 export default function App() {
   // Modal states
@@ -23,44 +26,16 @@ export default function App() {
   const [trackingOrderId, setTrackingOrderId] = useState('');
   const [policyTab, setPolicyTab] = useState(null); // 'about', 'privacy', 'refund', etc.
 
-  // Orders list with persistence in LocalStorage
-  const [ordersList, setOrdersList] = useState(() => {
-    try {
-      const saved = localStorage.getItem('sherubai_orders');
-      if (saved) return JSON.parse(saved);
-    } catch (e) {}
-    
-    // Default pre-loaded demonstration order
-    return [{
-      orderId: 'SB-882194',
-      customerName: 'Priya Sharma',
-      customerPhone: '9000000000',
-      recipientName: 'Aarav Sharma',
-      recipientPhone: '9111111111',
-      purchaseType: 'gift',
-      product: PRODUCTS[2], // Gold Box
-      amount: 499,
-      deliveryAddress: {
-        addressLine: 'A-304, Royal Palms, Bandra West',
-        city: 'Mumbai',
-        state: 'Maharashtra',
-        pincode: '400050'
-      },
-      pinStatus: { state: 'Maharashtra', estimatedDays: '2 - 3 Days' },
-      giftMessage: 'Happy Birthday Bhai! May your year be as bright and golden as this Sheru Bai box! ❤️🦁',
-      paymentMethod: 'UPI',
-      paymentStatus: 'SUCCESS',
-      placedAt: new Date(Date.now() - 36 * 3600 * 1000).toISOString(),
-      currentStep: 2,
-      courier: 'Bluedart Air Express',
-      awbNumber: 'EXP8821943IN'
-    }];
-  });
+  // Admin Portal states (Hidden, accessed via triple-click on brand logo)
+  const [isAdminAuthOpen, setIsAdminAuthOpen] = useState(false);
+  const [isAdminDashboardOpen, setIsAdminDashboardOpen] = useState(false);
+  const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
+
+  // Orders list initialized via orderService (persisted in localStorage)
+  const [ordersList, setOrdersList] = useState(() => orderService.getOrders());
 
   useEffect(() => {
-    try {
-      localStorage.setItem('sherubai_orders', JSON.stringify(ordersList));
-    } catch (e) {}
+    orderService.saveOrders(ordersList);
   }, [ordersList]);
 
   // Actions
@@ -76,15 +51,9 @@ export default function App() {
 
   const handlePaymentSuccess = (finalOrder) => {
     setPendingPaymentOrder(null);
-    // Add to persisted orders list
-    const orderWithTrackingStep = {
-      ...finalOrder,
-      currentStep: 0, // Order confirmed
-      courier: 'Bluedart Express',
-      awbNumber: `EXP${Math.floor(1000000 + Math.random() * 9000000)}IN`
-    };
-    setOrdersList(prev => [orderWithTrackingStep, ...prev]);
-    setConfirmedOrder(orderWithTrackingStep);
+    const newOrder = orderService.createOrder(finalOrder);
+    setOrdersList(orderService.getOrders());
+    setConfirmedOrder(newOrder);
   };
 
   const handleOpenTracking = (orderId = '') => {
@@ -98,13 +67,44 @@ export default function App() {
     if (el) el.scrollIntoView({ behavior: 'smooth' });
   };
 
+  // Secret Admin Portal Handlers
+  const handleSecretAdminTrigger = () => {
+    if (isAdminLoggedIn) {
+      setIsAdminDashboardOpen(true);
+    } else {
+      setIsAdminAuthOpen(true);
+    }
+  };
+
+  const handleAdminAuthSuccess = () => {
+    setIsAdminLoggedIn(true);
+    setIsAdminAuthOpen(false);
+    setIsAdminDashboardOpen(true);
+  };
+
+  const handleAdminLogout = () => {
+    setIsAdminLoggedIn(false);
+    setIsAdminDashboardOpen(false);
+  };
+
+  const handleUpdateOrderStatus = (orderId, newStep, courier, awb) => {
+    const updated = orderService.updateOrderStatus(orderId, newStep, courier, awb);
+    setOrdersList(updated);
+  };
+
+  const handleDeleteOrder = (orderId) => {
+    const updated = orderService.deleteOrder(orderId);
+    setOrdersList(updated);
+  };
+
   return (
     <div className="min-h-screen flex flex-col bg-cream-100 text-darkbrown-900 selection:bg-gold-500 selection:text-white">
       
-      {/* Royal Top Navigation */}
+      {/* Royal Top Navigation with Secret Admin Trigger on Logo */}
       <Navbar 
         onOpenTrackOrder={() => handleOpenTracking('')}
         onOpenDirectOrder={() => handleBuyNow(PRODUCTS[1])} // Silver Box as sweet default
+        onSecretAdminTrigger={handleSecretAdminTrigger}
       />
 
       <main className="flex-1">
@@ -188,6 +188,24 @@ export default function App() {
         <PoliciesModal 
           initialTab={policyTab}
           onClose={() => setPolicyTab(null)}
+        />
+      )}
+
+      {/* 7. Secret Admin Authentication Modal */}
+      <AdminAuthModal 
+        isOpen={isAdminAuthOpen}
+        onClose={() => setIsAdminAuthOpen(false)}
+        onSuccess={handleAdminAuthSuccess}
+      />
+
+      {/* 8. Full Admin Dashboard & Order Management */}
+      {isAdminDashboardOpen && (
+        <AdminDashboard 
+          orders={ordersList}
+          onUpdateOrder={handleUpdateOrderStatus}
+          onDeleteOrder={handleDeleteOrder}
+          onClose={() => setIsAdminDashboardOpen(false)}
+          onLogout={handleAdminLogout}
         />
       )}
 
