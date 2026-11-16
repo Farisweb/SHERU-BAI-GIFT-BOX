@@ -55,22 +55,22 @@ export default function PaymentModal({ orderData, onClose, onPaymentSuccess }) {
   };
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-darkbrown-950/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-darkbrown-950/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4">
       <div 
-        className="relative bg-cream-50 w-full max-w-xl rounded-3xl border-2 border-gold-500 shadow-2xl overflow-hidden"
+        className="relative bg-cream-50 w-full max-w-xl rounded-2xl sm:rounded-3xl border-2 border-gold-500 shadow-2xl overflow-hidden my-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="bg-burgundy-500 text-cream-100 p-5 flex items-center justify-between border-b border-gold-400">
-          <div className="flex items-center gap-3">
+        <div className="bg-burgundy-500 text-cream-100 p-4 sm:p-5 flex items-center justify-between border-b border-gold-400">
+          <div className="flex items-center gap-2.5 sm:gap-3">
             <div className="w-9 h-9 rounded-full bg-burgundy-700 border border-gold-400 flex items-center justify-center text-lg flex-shrink-0">
               🔒
             </div>
             <div>
-              <h3 className="font-serif text-base sm:text-lg font-bold tracking-wide">
+              <h3 className="font-serif text-sm sm:text-lg font-bold tracking-wide">
                 Sheru Bai Secure Payment Gateway
               </h3>
-              <p className="text-[11px] text-gold-300">
+              <p className="text-[10px] sm:text-[11px] text-gold-300">
                 100% Encrypted • PCI-DSS Compliant
               </p>
             </div>
@@ -79,7 +79,7 @@ export default function PaymentModal({ orderData, onClose, onPaymentSuccess }) {
           <button
             disabled={isProcessing}
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-burgundy-700 hover:bg-burgundy-800 text-cream-100 flex items-center justify-center transition-colors disabled:opacity-50"
+            className="w-8 h-8 rounded-full bg-burgundy-700 hover:bg-burgundy-800 text-cream-100 flex items-center justify-center transition-colors disabled:opacity-50 touch-press"
           >
             <X className="w-5 h-5" />
           </button>
@@ -328,7 +328,7 @@ export default function PaymentModal({ orderData, onClose, onPaymentSuccess }) {
               type="button"
               disabled={isProcessing}
               onClick={handlePay}
-              className="w-full bg-burgundy-500 hover:bg-burgundy-600 active:bg-burgundy-700 text-cream-100 font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-burgundy-glow transition-all flex items-center justify-center gap-2 text-sm tracking-wider uppercase disabled:opacity-60"
+              className="w-full bg-burgundy-500 hover:bg-burgundy-600 active:bg-burgundy-700 text-cream-100 font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-burgundy-glow transition-all flex items-center justify-center gap-2 text-xs sm:text-sm tracking-wider uppercase disabled:opacity-60 touch-press shimmer-button"
             >
               {isProcessing ? (
                 <>

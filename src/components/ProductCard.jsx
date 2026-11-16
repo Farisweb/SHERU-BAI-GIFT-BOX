@@ -3,11 +3,11 @@ import { Star, CheckCircle2, Eye, Sparkles, ArrowRight, Truck } from 'lucide-rea
 
 export default function ProductCard({ product, onBuyNow, onViewDetails }) {
   return (
-    <div className="cream-card rounded-3xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-1.5 group border-2 border-gold-500/25 hover:border-gold-500/60 relative">
+    <div className="cream-card rounded-3xl overflow-hidden flex flex-col transition-all duration-300 hover:-translate-y-2 group border-2 border-gold-500/25 hover:border-gold-500/60 relative shadow-sm hover:shadow-luxury-hover">
       
       {/* Top Badge */}
       <div className="absolute top-4 left-4 z-10">
-        <span className={`text-[11px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full shadow-md ${product.badgeColor}`}>
+        <span className={`text-[10.5px] sm:text-[11px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full shadow-md ${product.badgeColor}`}>
           {product.badge}
         </span>
       </div>
@@ -27,6 +27,7 @@ export default function ProductCard({ product, onBuyNow, onViewDetails }) {
         <img 
           src={product.image} 
           alt={product.name} 
+          loading="lazy"
           className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
         />
         <div className="absolute inset-0 bg-gradient-to-t from-darkbrown-900/60 via-transparent to-transparent opacity-60" />
@@ -34,7 +35,7 @@ export default function ProductCard({ product, onBuyNow, onViewDetails }) {
         {/* Quick View Button */}
         <button
           onClick={() => onViewDetails(product)}
-          className="absolute bottom-3 right-3 bg-white/90 hover:bg-white text-darkbrown-900 text-xs font-semibold px-3 py-1.5 rounded-full shadow-md flex items-center gap-1.5 backdrop-blur-sm transition-all"
+          className="absolute bottom-3 right-3 bg-white/95 hover:bg-white text-darkbrown-900 text-xs font-semibold px-3.5 py-1.5 rounded-full shadow-md flex items-center gap-1.5 backdrop-blur-sm transition-all touch-press active:scale-95 border border-gold-300/40"
         >
           <Eye className="w-3.5 h-3.5 text-burgundy-500" />
           <span>What's Inside</span>
@@ -103,10 +104,10 @@ export default function ProductCard({ product, onBuyNow, onViewDetails }) {
           {/* Official BUY NOW Button */}
           <button
             onClick={() => onBuyNow(product)}
-            className="w-full bg-burgundy-500 hover:bg-burgundy-600 active:bg-burgundy-700 text-cream-100 font-bold py-3.5 px-4 rounded-xl shadow-md hover:shadow-burgundy-glow transition-all flex items-center justify-center gap-2 text-sm tracking-wider uppercase active:scale-[0.98]"
+            className="w-full bg-burgundy-500 hover:bg-burgundy-600 active:bg-burgundy-700 text-cream-100 font-bold py-3.5 px-4 rounded-xl shadow-md hover:shadow-burgundy-glow transition-all flex items-center justify-center gap-2 text-xs sm:text-sm tracking-wider uppercase touch-press shimmer-button group/btn"
           >
             <span>BUY NOW</span>
-            <ArrowRight className="w-4 h-4 text-gold-300" />
+            <ArrowRight className="w-4 h-4 text-gold-300 group-hover/btn:translate-x-1.5 transition-transform" />
           </button>
         </div>
 

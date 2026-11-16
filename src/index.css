@@ -5,16 +5,29 @@
 @layer base {
   html {
     scroll-behavior: smooth;
+    -webkit-text-size-adjust: 100%;
   }
   
   body {
     background-color: #FFF9F0;
     color: #30251F;
     font-family: 'Plus Jakarta Sans', system-ui, -apple-system, sans-serif;
+    touch-action: manipulation;
   }
 
   h1, h2, h3, h4, .font-serif {
     font-family: 'Cinzel', 'Playfair Display', Georgia, serif;
+  }
+
+  * {
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  /* Prevent automatic iOS browser zoom on form focus */
+  @media (max-width: 640px) {
+    input, select, textarea {
+      font-size: 16px !important;
+    }
   }
 }
 
@@ -37,16 +50,59 @@
   background-color: #FFFDF9;
   border: 1px solid rgba(198, 161, 91, 0.25);
   box-shadow: 0 10px 30px -5px rgba(48, 37, 31, 0.05), 0 4px 12px -2px rgba(198, 161, 91, 0.08);
+  transition: transform 0.25s cubic-bezier(0.2, 0, 0, 1), box-shadow 0.25s ease, border-color 0.25s ease;
 }
 
 .cream-card:hover {
-  border-color: rgba(198, 161, 91, 0.5);
+  border-color: rgba(198, 161, 91, 0.6);
   box-shadow: 0 20px 40px -10px rgba(48, 37, 31, 0.12), 0 8px 24px -4px rgba(198, 161, 91, 0.2);
+}
+
+/* Button Touch & Hover Animations */
+.touch-press {
+  transition: transform 0.15s cubic-bezier(0.4, 0, 0.2, 1), box-shadow 0.15s ease, background-color 0.15s ease;
+}
+
+.touch-press:active {
+  transform: scale(0.96);
+}
+
+@keyframes shimmer-sweep {
+  0% { transform: skewX(-20deg) translateX(-150%); }
+  100% { transform: skewX(-20deg) translateX(250%); }
+}
+
+.shimmer-button {
+  position: relative;
+  overflow: hidden;
+}
+
+.shimmer-button::after {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 60%;
+  height: 100%;
+  background: linear-gradient(90deg, transparent, rgba(255, 255, 255, 0.25), transparent);
+  transform: skewX(-20deg) translateX(-150%);
+  animation: shimmer-sweep 3.5s infinite;
+  pointer-events: none;
+}
+
+@keyframes float-slow {
+  0%, 100% { transform: translateY(0px); }
+  50% { transform: translateY(-8px); }
+}
+
+.animate-float {
+  animation: float-slow 4s ease-in-out infinite;
 }
 
 /* Custom Scrollbar */
 ::-webkit-scrollbar {
-  width: 8px;
+  width: 6px;
+  height: 6px;
 }
 ::-webkit-scrollbar-track {
   background: #FFF9F0;

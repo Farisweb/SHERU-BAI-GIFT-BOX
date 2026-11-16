@@ -46,33 +46,33 @@ export default function HeroSection({ onExploreClick, onOrderClick }) {
             </p>
 
             {/* Key Value Badges */}
-            <div className="grid grid-cols-3 gap-3 pt-2 max-w-lg mx-auto lg:mx-0">
-              <div className="p-3 rounded-xl bg-cream-50/80 border border-gold-200 text-center">
-                <span className="block font-serif font-bold text-lg text-burgundy-600">6 Tiers</span>
-                <span className="text-[11px] text-darkbrown-600">₹99 to ₹1,999</span>
+            <div className="grid grid-cols-3 gap-2 sm:gap-3.5 pt-2 max-w-lg mx-auto lg:mx-0">
+              <div className="p-2.5 sm:p-3 rounded-2xl bg-cream-50/90 border border-gold-300/70 text-center shadow-xs">
+                <span className="block font-serif font-bold text-base sm:text-xl text-burgundy-600">6 Tiers</span>
+                <span className="text-[10px] sm:text-xs text-darkbrown-600 font-medium">₹99 to ₹1,999</span>
               </div>
-              <div className="p-3 rounded-xl bg-cream-50/80 border border-gold-200 text-center">
-                <span className="block font-serif font-bold text-lg text-gold-600">Air Express</span>
-                <span className="text-[11px] text-darkbrown-600">Pan-India Delivery</span>
+              <div className="p-2.5 sm:p-3 rounded-2xl bg-cream-50/90 border border-gold-300/70 text-center shadow-xs">
+                <span className="block font-serif font-bold text-base sm:text-xl text-gold-600">Air Express</span>
+                <span className="text-[10px] sm:text-xs text-darkbrown-600 font-medium">Pan-India Delivery</span>
               </div>
-              <div className="p-3 rounded-xl bg-cream-50/80 border border-gold-200 text-center">
-                <span className="block font-serif font-bold text-lg text-burgundy-600">Personalized</span>
-                <span className="text-[11px] text-darkbrown-600">Wax-Sealed Note</span>
+              <div className="p-2.5 sm:p-3 rounded-2xl bg-cream-50/90 border border-gold-300/70 text-center shadow-xs">
+                <span className="block font-serif font-bold text-base sm:text-xl text-burgundy-600">Wax-Sealed</span>
+                <span className="text-[10px] sm:text-xs text-darkbrown-600 font-medium">Personal Letter</span>
               </div>
             </div>
 
             {/* Action Buttons */}
-            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-4">
+            <div className="pt-4 flex flex-col sm:flex-row items-center justify-center lg:justify-start gap-3.5 sm:gap-4">
               <button
                 onClick={onExploreClick}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-burgundy-500 hover:bg-burgundy-600 text-cream-100 font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-burgundy-glow transition-all text-sm tracking-wide group"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-3 bg-burgundy-500 hover:bg-burgundy-600 active:bg-burgundy-700 text-cream-100 font-semibold px-8 py-4 rounded-full shadow-lg hover:shadow-burgundy-glow transition-all text-sm tracking-wide group touch-press shimmer-button"
               >
                 <span>Choose Your Gift Box</span>
-                <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform text-gold-300" />
+                <ArrowRight className="w-4 h-4 group-hover:translate-x-1.5 transition-transform text-gold-300" />
               </button>
               <button
                 onClick={onOrderClick}
-                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border-2 border-gold-500 text-darkbrown-900 hover:bg-gold-500 hover:text-white font-semibold px-7 py-3.5 rounded-full transition-all text-sm"
+                className="w-full sm:w-auto inline-flex items-center justify-center gap-2 border-2 border-gold-500 text-darkbrown-900 hover:bg-gold-500 hover:text-white font-semibold px-7 py-3.5 rounded-full transition-all text-sm touch-press bg-white/60 shadow-xs"
               >
                 <Gift className="w-4 h-4 text-gold-600" />
                 <span>Instant Gift Checkout</span>
@@ -154,7 +154,7 @@ export default function HeroSection({ onExploreClick, onOrderClick }) {
               </div>
 
               {/* Floating Guarantee Badge */}
-              <div className="absolute -bottom-4 -left-4 bg-burgundy-500 text-cream-100 p-3 rounded-2xl shadow-xl border border-gold-400 flex items-center gap-2.5 max-w-[220px]">
+              <div className="absolute -bottom-4 -left-4 bg-burgundy-500 text-cream-100 p-3 rounded-2xl shadow-xl border border-gold-400 flex items-center gap-2.5 max-w-[220px] animate-float">
                 <div className="w-8 h-8 rounded-full bg-burgundy-700 flex items-center justify-center flex-shrink-0 text-gold-300">
                   🎁
                 </div>

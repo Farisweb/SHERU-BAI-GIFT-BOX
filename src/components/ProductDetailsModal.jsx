@@ -5,21 +5,22 @@ export default function ProductDetailsModal({ product, onClose, onBuyNow }) {
   if (!product) return null;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-darkbrown-950/70 backdrop-blur-sm flex items-center justify-center p-4">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-darkbrown-950/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4">
       <div 
-        className="relative bg-cream-50 w-full max-w-2xl rounded-3xl border-2 border-gold-500 shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200"
+        className="relative bg-cream-50 w-full max-w-2xl rounded-2xl sm:rounded-3xl border-2 border-gold-500 shadow-2xl overflow-hidden animate-in fade-in zoom-in-95 duration-200 my-auto max-h-[90vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 z-20 w-9 h-9 rounded-full bg-cream-100 hover:bg-gold-100 border border-gold-400 flex items-center justify-center text-darkbrown-800 transition-colors"
+          className="absolute top-3.5 right-3.5 sm:top-4 sm:right-4 z-20 w-8 h-8 sm:w-9 sm:h-9 rounded-full bg-cream-100/90 hover:bg-gold-100 border border-gold-400 flex items-center justify-center text-darkbrown-800 transition-colors shadow-md touch-press"
+          aria-label="Close"
         >
-          <X className="w-5 h-5" />
+          <X className="w-4 h-4 sm:w-5 sm:h-5" />
         </button>
 
         {/* Modal Banner */}
-        <div className="relative aspect-[16/9] sm:aspect-[21/9] overflow-hidden bg-cream-200">
+        <div className="relative aspect-[16/9] sm:aspect-[21/9] overflow-hidden bg-cream-200 flex-shrink-0">
           <img 
             src={product.image} 
             alt={product.name} 
@@ -27,18 +28,18 @@ export default function ProductDetailsModal({ product, onClose, onBuyNow }) {
           />
           <div className="absolute inset-0 bg-gradient-to-t from-cream-50 via-cream-50/40 to-transparent" />
           
-          <div className="absolute bottom-4 left-6">
-            <span className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full ${product.badgeColor}`}>
+          <div className="absolute bottom-3 sm:bottom-4 left-4 sm:left-6">
+            <span className={`text-[10px] font-bold uppercase tracking-wider px-3 py-1 rounded-full shadow-xs ${product.badgeColor}`}>
               {product.badge}
             </span>
-            <h3 className="font-serif text-2xl sm:text-3xl font-bold text-darkbrown-900 mt-1">
+            <h3 className="font-serif text-xl sm:text-3xl font-bold text-darkbrown-900 mt-1">
               {product.name}
             </h3>
           </div>
         </div>
 
         {/* Modal Body */}
-        <div className="p-6 sm:p-8 space-y-6">
+        <div className="p-4 sm:p-8 space-y-5 sm:space-y-6 overflow-y-auto flex-1">
           
           {/* Price & Tagline */}
           <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-2 pb-4 border-b border-gold-200">
@@ -99,14 +100,14 @@ export default function ProductDetailsModal({ product, onClose, onBuyNow }) {
                 onClose();
                 onBuyNow(product);
               }}
-              className="w-full bg-burgundy-500 hover:bg-burgundy-600 text-cream-100 font-bold py-3.5 px-6 rounded-xl shadow-md hover:shadow-burgundy-glow transition-all flex items-center justify-center gap-2 text-sm tracking-wide"
+              className="w-full bg-burgundy-500 hover:bg-burgundy-600 active:bg-burgundy-700 text-cream-100 font-bold py-3.5 px-6 rounded-xl shadow-md hover:shadow-burgundy-glow transition-all flex items-center justify-center gap-2 text-xs sm:text-sm tracking-wide touch-press shimmer-button"
             >
               <span>BUY NOW • ₹{product.price} {product.deliveryFee > 0 ? `(+₹${product.deliveryFee} Del.)` : ''}</span>
               <ArrowRight className="w-4 h-4 text-gold-300" />
             </button>
             <button
               onClick={onClose}
-              className="w-full sm:w-auto px-5 py-3 border border-darkbrown-300 hover:bg-cream-100 text-darkbrown-800 rounded-xl text-xs font-semibold"
+              className="w-full sm:w-auto px-5 py-3 border border-darkbrown-300 hover:bg-cream-100 text-darkbrown-800 rounded-xl text-xs font-semibold touch-press"
             >
               Close
             </button>

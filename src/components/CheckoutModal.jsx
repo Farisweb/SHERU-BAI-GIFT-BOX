@@ -106,22 +106,22 @@ export default function CheckoutModal({ product, onClose, onProceedToPayment }) 
   const totalPayable = product.price + deliveryCharge;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-darkbrown-950/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-darkbrown-950/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4">
       <div 
-        className="relative bg-cream-50 w-full max-w-3xl rounded-3xl border-2 border-gold-500 shadow-2xl overflow-hidden my-6"
+        className="relative bg-cream-50 w-full max-w-3xl rounded-2xl sm:rounded-3xl border-2 border-gold-500 shadow-2xl overflow-hidden my-auto"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="bg-burgundy-500 text-cream-100 p-5 sm:p-6 flex items-center justify-between border-b border-gold-400">
-          <div className="flex items-center gap-3">
+        <div className="bg-burgundy-500 text-cream-100 p-4 sm:p-6 flex items-center justify-between border-b border-gold-400">
+          <div className="flex items-center gap-2.5 sm:gap-3">
             <div className="w-10 h-10 rounded-full overflow-hidden border border-gold-400 bg-black flex items-center justify-center flex-shrink-0">
               <img src={brandLogo} alt="Sheru Baai Logo" className="w-full h-full object-cover" />
             </div>
             <div>
-              <h3 className="font-serif text-lg sm:text-xl font-bold tracking-wide">
+              <h3 className="font-serif text-base sm:text-xl font-bold tracking-wide">
                 Complete Your Sheru Bai Order
               </h3>
-              <p className="text-xs text-gold-300">
+              <p className="text-[11px] sm:text-xs text-gold-300">
                 {product.name} • ₹{product.price} {deliveryCharge === 0 ? '(Free Express Delivery)' : `(+₹${deliveryCharge} Delivery)`}
               </p>
             </div>
@@ -129,13 +129,13 @@ export default function CheckoutModal({ product, onClose, onProceedToPayment }) 
 
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-burgundy-700 hover:bg-burgundy-800 text-cream-100 flex items-center justify-center transition-colors"
+            className="w-8 h-8 rounded-full bg-burgundy-700 hover:bg-burgundy-800 text-cream-100 flex items-center justify-center transition-colors touch-press flex-shrink-0"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
-        <form onSubmit={handleSubmit} className="p-6 sm:p-8 space-y-7 max-h-[80vh] overflow-y-auto">
+        <form onSubmit={handleSubmit} className="p-4 sm:p-8 space-y-6 sm:space-y-7 max-h-[82vh] overflow-y-auto">
           
           {/* Step 1: Purchase Mode Toggle */}
           <div className="space-y-2">
@@ -470,7 +470,7 @@ export default function CheckoutModal({ product, onClose, onProceedToPayment }) 
 
             <button
               type="submit"
-              className="w-full mt-3 bg-burgundy-500 hover:bg-burgundy-600 active:bg-burgundy-700 text-cream-100 font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-burgundy-glow transition-all flex items-center justify-center gap-2 text-sm tracking-wider uppercase"
+              className="w-full mt-3 bg-burgundy-500 hover:bg-burgundy-600 active:bg-burgundy-700 text-cream-100 font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-burgundy-glow transition-all flex items-center justify-center gap-2 text-xs sm:text-sm tracking-wider uppercase touch-press shimmer-button"
             >
               <span>PROCEED TO SECURE PAYMENT • ₹{totalPayable}</span>
               <ArrowRight className="w-4 h-4 text-gold-300" />

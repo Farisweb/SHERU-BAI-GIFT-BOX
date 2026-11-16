@@ -114,22 +114,22 @@ export default function TrackOrderModal({ initialOrderId = '', ordersList = [], 
   const currentStepIndex = activeOrder?.currentStep || 2;
 
   return (
-    <div className="fixed inset-0 z-50 overflow-y-auto bg-darkbrown-950/80 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
+    <div className="fixed inset-0 z-50 overflow-y-auto bg-darkbrown-950/80 backdrop-blur-sm flex items-center justify-center p-2 sm:p-4">
       <div 
-        className="relative bg-cream-50 w-full max-w-2xl rounded-3xl border-2 border-gold-500 shadow-2xl overflow-hidden my-4"
+        className="relative bg-cream-50 w-full max-w-2xl rounded-2xl sm:rounded-3xl border-2 border-gold-500 shadow-2xl overflow-hidden my-auto max-h-[92vh] flex flex-col"
         onClick={(e) => e.stopPropagation()}
       >
         {/* Header */}
-        <div className="bg-burgundy-500 text-cream-100 p-5 sm:p-6 flex items-center justify-between border-b border-gold-400">
-          <div className="flex items-center gap-3">
-            <div className="w-10 h-10 rounded-full bg-burgundy-700 border border-gold-400 flex items-center justify-center text-xl flex-shrink-0">
+        <div className="bg-burgundy-500 text-cream-100 p-4 sm:p-6 flex items-center justify-between border-b border-gold-400 flex-shrink-0">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <div className="w-10 h-10 rounded-full bg-burgundy-700 border border-gold-400 flex items-center justify-center text-xl flex-shrink-0 shadow-xs">
               🚚
             </div>
             <div>
-              <h3 className="font-serif text-lg font-bold tracking-wide">
+              <h3 className="font-serif text-base sm:text-lg font-bold tracking-wide">
                 Live Gift Box Order Tracking
               </h3>
-              <p className="text-xs text-gold-300">
+              <p className="text-[11px] sm:text-xs text-gold-300">
                 Pan-India Express Delivery Status
               </p>
             </div>
@@ -137,14 +137,14 @@ export default function TrackOrderModal({ initialOrderId = '', ordersList = [], 
 
           <button
             onClick={onClose}
-            className="w-8 h-8 rounded-full bg-burgundy-700 hover:bg-burgundy-800 text-cream-100 flex items-center justify-center transition-colors"
+            className="w-8 h-8 rounded-full bg-burgundy-700 hover:bg-burgundy-800 text-cream-100 flex items-center justify-center transition-colors touch-press flex-shrink-0"
           >
             <X className="w-5 h-5" />
           </button>
         </div>
 
         {/* Search Bar */}
-        <div className="p-5 sm:p-6 border-b border-gold-200 bg-gold-50/40">
+        <div className="p-4 sm:p-6 border-b border-gold-200 bg-gold-50/40 flex-shrink-0">
           <form onSubmit={handleSearch} className="flex gap-2">
             <div className="relative flex-1">
               <Search className="w-4 h-4 text-gold-600 absolute left-3.5 top-3" />
@@ -152,13 +152,13 @@ export default function TrackOrderModal({ initialOrderId = '', ordersList = [], 
                 type="text"
                 value={searchQuery}
                 onChange={(e) => setSearchQuery(e.target.value)}
-                placeholder="Enter Order ID (e.g. SB-882194) or Mobile Number"
-                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gold-300 bg-white text-darkbrown-900 text-xs sm:text-sm focus:outline-none focus:ring-2 focus:ring-burgundy-500"
+                placeholder="Order ID (e.g. SB-882194) or Mobile"
+                className="w-full pl-10 pr-4 py-2.5 rounded-xl border border-gold-300 bg-white text-darkbrown-900 text-base sm:text-sm focus:outline-none focus:ring-2 focus:ring-burgundy-500 shadow-xs"
               />
             </div>
             <button
               type="submit"
-              className="bg-burgundy-500 hover:bg-burgundy-600 text-cream-100 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-semibold transition-all"
+              className="bg-burgundy-500 hover:bg-burgundy-600 active:bg-burgundy-700 text-cream-100 px-5 py-2.5 rounded-xl text-xs sm:text-sm font-bold transition-all touch-press shimmer-button"
             >
               Track
             </button>

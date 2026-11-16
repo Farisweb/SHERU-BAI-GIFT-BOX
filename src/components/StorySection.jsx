@@ -66,7 +66,7 @@ export default function StorySection({ onSelectBoxClick }) {
               <div className="mt-6 flex flex-col sm:flex-row items-center justify-center gap-4">
                 <button
                   onClick={onSelectBoxClick}
-                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2 bg-burgundy-500 hover:bg-burgundy-600 text-cream-100 font-semibold px-8 py-3.5 rounded-full shadow-md hover:shadow-burgundy-glow transition-all text-sm tracking-wide"
+                  className="w-full sm:w-auto inline-flex items-center justify-center gap-2.5 bg-burgundy-500 hover:bg-burgundy-600 active:bg-burgundy-700 text-cream-100 font-bold px-8 py-4 rounded-full shadow-md hover:shadow-burgundy-glow transition-all text-sm tracking-wide touch-press shimmer-button"
                 >
                   <Smile className="w-4 h-4 text-gold-400" />
                   <span>Make Someone Smile Today!</span>
@@ -77,19 +77,19 @@ export default function StorySection({ onSelectBoxClick }) {
           </div>
 
           {/* Bottom 3-step Journey Badges */}
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-4 pt-12 mt-10 border-t border-gold-500/20 text-center">
-            <div className="p-4 rounded-xl bg-white/60 border border-gold-200">
-              <div className="w-10 h-10 rounded-full bg-gold-100 text-gold-700 flex items-center justify-center mx-auto mb-2 font-bold font-serif">1</div>
+          <div className="grid grid-cols-1 md:grid-cols-3 gap-3.5 sm:gap-4 pt-10 sm:pt-12 mt-8 sm:mt-10 border-t border-gold-500/20 text-center">
+            <div className="p-4 sm:p-5 rounded-2xl bg-white/70 border border-gold-200 shadow-xs hover:-translate-y-1 hover:border-gold-400 transition-all">
+              <div className="w-10 h-10 rounded-full bg-gold-100 text-gold-700 flex items-center justify-center mx-auto mb-2 font-bold font-serif shadow-2xs">1</div>
               <h4 className="font-serif font-bold text-sm text-darkbrown-900">Choose A Box</h4>
               <p className="text-xs text-darkbrown-600 mt-1">From ₹99 Mini to ₹1,999 Royal Emperor Box</p>
             </div>
-            <div className="p-4 rounded-xl bg-white/60 border border-gold-200">
-              <div className="w-10 h-10 rounded-full bg-burgundy-100 text-burgundy-600 flex items-center justify-center mx-auto mb-2 font-bold font-serif">2</div>
+            <div className="p-4 sm:p-5 rounded-2xl bg-white/70 border border-gold-200 shadow-xs hover:-translate-y-1 hover:border-gold-400 transition-all">
+              <div className="w-10 h-10 rounded-full bg-burgundy-100 text-burgundy-600 flex items-center justify-center mx-auto mb-2 font-bold font-serif shadow-2xs">2</div>
               <h4 className="font-serif font-bold text-sm text-darkbrown-900">Add Your Words</h4>
               <p className="text-xs text-darkbrown-600 mt-1">Printed on our wax-sealed parchment card</p>
             </div>
-            <div className="p-4 rounded-xl bg-white/60 border border-gold-200">
-              <div className="w-10 h-10 rounded-full bg-gold-100 text-gold-700 flex items-center justify-center mx-auto mb-2 font-bold font-serif">3</div>
+            <div className="p-4 sm:p-5 rounded-2xl bg-white/70 border border-gold-200 shadow-xs hover:-translate-y-1 hover:border-gold-400 transition-all">
+              <div className="w-10 h-10 rounded-full bg-gold-100 text-gold-700 flex items-center justify-center mx-auto mb-2 font-bold font-serif shadow-2xs">3</div>
               <h4 className="font-serif font-bold text-sm text-darkbrown-900">Doorstep Delivery</h4>
               <p className="text-xs text-darkbrown-600 mt-1">Delivered across India with live tracking</p>
             </div>

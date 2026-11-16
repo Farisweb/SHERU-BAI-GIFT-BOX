@@ -87,39 +87,41 @@ export default function AdminDashboard({
     <div className="fixed inset-0 z-50 bg-[#FBF7F0] text-darkbrown-900 overflow-y-auto flex flex-col font-sans">
       
       {/* Top Admin Navigation Header */}
-      <header className="sticky top-0 z-40 bg-darkbrown-950 text-cream-100 border-b-2 border-gold-500 shadow-md">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 h-20 flex items-center justify-between">
-          <div className="flex items-center gap-3">
-            <div className="w-12 h-12 rounded-full overflow-hidden border-2 border-gold-400 bg-black flex-shrink-0 shadow-md">
+      <header className="sticky top-0 z-40 bg-darkbrown-950 text-cream-100 border-b-2 border-gold-500 shadow-md flex-shrink-0">
+        <div className="max-w-7xl mx-auto px-3 sm:px-6 lg:px-8 h-18 sm:h-20 flex items-center justify-between">
+          <div className="flex items-center gap-2.5 sm:gap-3">
+            <div className="w-10 h-10 sm:w-12 sm:h-12 rounded-full overflow-hidden border-2 border-gold-400 bg-black flex-shrink-0 shadow-md">
               <img src={brandLogo} alt="Sheru Baai" className="w-full h-full object-cover" />
             </div>
             <div>
-              <div className="flex items-center gap-2">
-                <span className="font-serif text-lg sm:text-xl font-bold tracking-wider text-cream-100">
-                  SHERU BAAI <span className="text-gold-400">MASTER ADMIN</span>
+              <div className="flex items-center gap-1.5 sm:gap-2">
+                <span className="font-serif text-sm sm:text-lg lg:text-xl font-bold tracking-wider text-cream-100">
+                  SHERU BAAI <span className="text-gold-400">ADMIN</span>
                 </span>
-                <span className="text-[10px] px-2 py-0.5 rounded-full bg-gold-500/20 text-gold-300 border border-gold-400/40 uppercase font-bold tracking-widest hidden sm:inline">
-                  Shop Owner Portal
+                <span className="text-[9px] sm:text-[10px] px-2 py-0.5 rounded-full bg-gold-500/20 text-gold-300 border border-gold-400/40 uppercase font-bold tracking-widest hidden sm:inline">
+                  Atelier
                 </span>
               </div>
-              <p className="text-xs text-cream-200/70">
+              <p className="text-[10.5px] sm:text-xs text-cream-200/70 hidden sm:block">
                 Order fulfillment & live delivery milestone tracking
               </p>
             </div>
           </div>
 
-          <div className="flex items-center gap-2.5">
+          <div className="flex items-center gap-2 sm:gap-2.5">
             <button
               onClick={onClose}
-              className="px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-cream-100 text-xs font-semibold flex items-center gap-1.5 transition-colors border border-white/20"
+              className="px-3 sm:px-4 py-2 rounded-xl bg-white/10 hover:bg-white/20 text-cream-100 text-xs font-semibold flex items-center gap-1.5 transition-colors border border-white/20 touch-press"
+              title="Back to Store"
             >
               <ArrowLeft className="w-3.5 h-3.5" />
-              <span>Back to Store</span>
+              <span className="hidden sm:inline">Store</span>
             </button>
 
             <button
               onClick={onLogout}
-              className="px-4 py-2 rounded-xl bg-burgundy-600 hover:bg-burgundy-700 text-cream-100 text-xs font-semibold flex items-center gap-1.5 transition-colors shadow-sm"
+              className="px-3 sm:px-4 py-2 rounded-xl bg-burgundy-600 hover:bg-burgundy-700 text-cream-100 text-xs font-semibold flex items-center gap-1.5 transition-colors shadow-sm touch-press"
+              title="Logout"
             >
               <LogOut className="w-3.5 h-3.5" />
               <span className="hidden sm:inline">Logout</span>
@@ -129,10 +131,10 @@ export default function AdminDashboard({
       </header>
 
       {/* Main Admin Content */}
-      <main className="flex-1 max-w-7xl w-full mx-auto px-4 sm:px-6 lg:px-8 py-8 space-y-8">
+      <main className="flex-1 max-w-7xl w-full mx-auto px-3 sm:px-6 lg:px-8 py-6 sm:py-8 space-y-6 sm:space-y-8">
         
         {/* KPI Metrics Cards */}
-        <div className="grid grid-cols-2 lg:grid-cols-5 gap-4">
+        <div className="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-2.5 sm:gap-3.5 lg:gap-4">
           <div className="p-4 rounded-2xl bg-white border border-gold-300 shadow-xs">
             <div className="flex items-center justify-between">
               <span className="text-xs text-darkbrown-600 font-medium">Total Orders</span>
@@ -397,7 +399,7 @@ export default function AdminDashboard({
                       {/* View Details */}
                       <button
                         onClick={() => setSelectedOrderDetails(order)}
-                        className="px-3.5 py-2 rounded-xl bg-cream-100 hover:bg-gold-100 text-darkbrown-900 text-xs font-semibold flex items-center gap-1.5 transition-colors border border-gold-300"
+                        className="px-3.5 py-2 rounded-xl bg-cream-100 hover:bg-gold-100 text-darkbrown-900 text-xs font-semibold flex items-center gap-1.5 transition-colors border border-gold-300 touch-press"
                         title="View Full Order & Gift Note"
                       >
                         <Eye className="w-3.5 h-3.5 text-gold-700" />
@@ -407,7 +409,7 @@ export default function AdminDashboard({
                       {/* FEATURE 2: Print Shipping Label */}
                       <button
                         onClick={() => setLabelOrder(order)}
-                        className="px-3.5 py-2 rounded-xl bg-white hover:bg-gray-50 text-darkbrown-900 text-xs font-semibold flex items-center gap-1.5 transition-colors border border-gray-400"
+                        className="px-3.5 py-2 rounded-xl bg-white hover:bg-gray-50 text-darkbrown-900 text-xs font-semibold flex items-center gap-1.5 transition-colors border border-gray-400 touch-press"
                         title="Print Courier Parcel Sticker"
                       >
                         <Printer className="w-3.5 h-3.5 text-gray-700" />
@@ -417,7 +419,7 @@ export default function AdminDashboard({
                       {/* Update Delivery Status */}
                       <button
                         onClick={() => handleOpenStatusEditor(order)}
-                        className="px-4 py-2 rounded-xl bg-burgundy-600 hover:bg-burgundy-700 text-cream-100 text-xs font-bold flex items-center gap-1.5 transition-all shadow-xs"
+                        className="px-4 py-2 rounded-xl bg-burgundy-600 hover:bg-burgundy-700 text-cream-100 text-xs font-bold flex items-center gap-1.5 transition-all shadow-xs touch-press shimmer-button"
                       >
                         <Edit3 className="w-3.5 h-3.5 text-gold-300" />
                         <span>Update Status</span>
@@ -430,7 +432,7 @@ export default function AdminDashboard({
                             onDeleteOrder(order.orderId);
                           }
                         }}
-                        className="p-2 rounded-xl text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors"
+                        className="p-2 rounded-xl text-gray-400 hover:text-red-600 hover:bg-red-50 transition-colors touch-press"
                         title="Delete Order"
                       >
                         <Trash2 className="w-4 h-4" />
