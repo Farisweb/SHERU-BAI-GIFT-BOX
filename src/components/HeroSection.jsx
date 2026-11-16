@@ -48,12 +48,12 @@ export default function HeroSection({ onExploreClick, onOrderClick }) {
             {/* Key Value Badges */}
             <div className="grid grid-cols-3 gap-3 pt-2 max-w-lg mx-auto lg:mx-0">
               <div className="p-3 rounded-xl bg-cream-50/80 border border-gold-200 text-center">
-                <span className="block font-serif font-bold text-lg text-burgundy-600">4 Tiers</span>
-                <span className="text-[11px] text-darkbrown-600">₹99 to ₹999</span>
+                <span className="block font-serif font-bold text-lg text-burgundy-600">6 Tiers</span>
+                <span className="text-[11px] text-darkbrown-600">₹99 to ₹1,999</span>
               </div>
               <div className="p-3 rounded-xl bg-cream-50/80 border border-gold-200 text-center">
-                <span className="block font-serif font-bold text-lg text-gold-600">100% Free</span>
-                <span className="text-[11px] text-darkbrown-600">Pan-India Shipping</span>
+                <span className="block font-serif font-bold text-lg text-gold-600">Air Express</span>
+                <span className="text-[11px] text-darkbrown-600">Pan-India Delivery</span>
               </div>
               <div className="p-3 rounded-xl bg-cream-50/80 border border-gold-200 text-center">
                 <span className="block font-serif font-bold text-lg text-burgundy-600">Personalized</span>

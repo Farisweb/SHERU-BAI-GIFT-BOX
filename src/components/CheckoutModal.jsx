@@ -74,6 +74,9 @@ export default function CheckoutModal({ product, onClose, onProceedToPayment }) 
     e.preventDefault();
     if (!validate()) return;
 
+    const deliveryCharge = product.deliveryFee !== undefined ? product.deliveryFee : 0;
+    const totalPayable = product.price + deliveryCharge;
+
     const orderData = {
       product,
       purchaseType,
@@ -89,13 +92,18 @@ export default function CheckoutModal({ product, onClose, onProceedToPayment }) 
         state,
       },
       giftMessage: purchaseType === 'gift' ? giftMessage : '',
-      amount: product.price,
-      shipping: 0,
+      amount: totalPayable,
+      productPrice: product.price,
+      deliveryCharge: deliveryCharge,
+      shipping: deliveryCharge,
       pinStatus: pinStatus?.isValid ? pinStatus : { state, estimatedDays: '3 - 5 Days' }
     };
 
     onProceedToPayment(orderData);
   };
+
+  const deliveryCharge = product.deliveryFee !== undefined ? product.deliveryFee : 0;
+  const totalPayable = product.price + deliveryCharge;
 
   return (
     <div className="fixed inset-0 z-50 overflow-y-auto bg-darkbrown-950/75 backdrop-blur-sm flex items-center justify-center p-3 sm:p-4">
@@ -114,7 +122,7 @@ export default function CheckoutModal({ product, onClose, onProceedToPayment }) 
                 Complete Your Sheru Bai Order
               </h3>
               <p className="text-xs text-gold-300">
-                {product.name} • ₹{product.price} (Free Pan-India Express Delivery)
+                {product.name} • ₹{product.price} {deliveryCharge === 0 ? '(Free Express Delivery)' : `(+₹${deliveryCharge} Delivery)`}
               </p>
             </div>
           </div>
@@ -449,20 +457,22 @@ export default function CheckoutModal({ product, onClose, onProceedToPayment }) 
             <div className="flex justify-between text-xs text-darkbrown-700">
               <span className="flex items-center gap-1">
                 <Truck className="w-3.5 h-3.5 text-gold-500" />
-                All-India Air Express Delivery
+                Express Pan-India Delivery
               </span>
-              <span className="text-green-700 font-semibold">FREE (₹0)</span>
+              <span className={deliveryCharge === 0 ? "text-green-700 font-semibold" : "text-darkbrown-900 font-bold"}>
+                {deliveryCharge === 0 ? "FREE (₹0)" : `₹${deliveryCharge}`}
+              </span>
             </div>
             <div className="pt-2 border-t border-gold-300 flex justify-between items-baseline font-bold">
               <span className="font-serif text-sm text-darkbrown-900">Total Payable Amount:</span>
-              <span className="font-serif text-2xl text-burgundy-600">₹{product.price}</span>
+              <span className="font-serif text-2xl text-burgundy-600">₹{totalPayable}</span>
             </div>
 
             <button
               type="submit"
               className="w-full mt-3 bg-burgundy-500 hover:bg-burgundy-600 active:bg-burgundy-700 text-cream-100 font-bold py-4 px-6 rounded-xl shadow-lg hover:shadow-burgundy-glow transition-all flex items-center justify-center gap-2 text-sm tracking-wider uppercase"
             >
-              <span>PROCEED TO SECURE PAYMENT • ₹{product.price}</span>
+              <span>PROCEED TO SECURE PAYMENT • ₹{totalPayable}</span>
               <ArrowRight className="w-4 h-4 text-gold-300" />
             </button>
             

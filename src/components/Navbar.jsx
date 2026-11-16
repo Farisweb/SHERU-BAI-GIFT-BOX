@@ -1,8 +1,14 @@
 import React, { useState, useRef } from 'react';
-import { Package, Truck, Sparkles, Menu, X, Heart, ShieldCheck, Search } from 'lucide-react';
+import { Package, Truck, Sparkles, Menu, X, Heart, ShieldCheck, Search, BellRing } from 'lucide-react';
 import brandLogo from '../assets/sheru-baai-logo.jpg';
 
-export default function Navbar({ onOpenTrackOrder, onOpenDirectOrder, onSecretAdminTrigger, cartItemCount = 0 }) {
+export default function Navbar({ 
+  onOpenTrackOrder, 
+  onOpenDirectOrder, 
+  onSecretAdminTrigger, 
+  announcementText = '🚀 Sheru Baai Mobile Application Coming Soon! • Handcrafted Luxury Gift Boxes Available for Order Now 🎉',
+  cartItemCount = 0 
+}) {
   const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
   const clickCountRef = useRef(0);
   const clickTimerRef = useRef(null);
@@ -30,16 +36,11 @@ export default function Navbar({ onOpenTrackOrder, onOpenDirectOrder, onSecretAd
 
   return (
     <header className="sticky top-0 z-40 bg-cream-100/95 backdrop-blur-md border-b border-gold-500/25 shadow-sm transition-all">
-      {/* Top Announcement Bar */}
-      <div className="bg-burgundy-500 text-cream-100 text-xs py-1.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-3">
+      {/* Top Announcement Bar (Customizable via Admin Panel) */}
+      <div className="bg-gradient-to-r from-burgundy-700 via-burgundy-600 to-burgundy-800 text-cream-100 text-xs py-1.5 px-4 text-center font-medium tracking-wide flex items-center justify-center gap-2.5 shadow-xs border-b border-gold-400/20">
         <span className="flex items-center gap-1.5">
-          <Truck className="w-3.5 h-3.5 text-gold-400" />
-          Free Express Delivery Across India on All Gift Boxes
-        </span>
-        <span className="hidden md:inline text-gold-400">•</span>
-        <span className="hidden md:inline flex items-center gap-1">
-          <Sparkles className="w-3.5 h-3.5 text-gold-400" />
-          Hand-Packed with Love & Personalized Greeting Cards
+          <BellRing className="w-3.5 h-3.5 text-gold-400 animate-pulse flex-shrink-0" />
+          <span className="font-semibold">{announcementText}</span>
         </span>
       </div>
 

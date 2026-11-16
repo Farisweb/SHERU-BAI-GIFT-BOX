@@ -90,6 +90,13 @@ export default function PaymentModal({ orderData, onClose, onPaymentSuccess }) {
           <div className="flex items-center gap-2">
             <span className="text-xs text-darkbrown-700 font-medium">Paying for:</span>
             <span className="text-xs font-serif font-bold text-darkbrown-900">{orderData.product.name}</span>
+            {orderData.deliveryCharge > 0 ? (
+              <span className="text-[11px] text-darkbrown-600 hidden sm:inline">
+                (₹{orderData.productPrice || orderData.product.price} + ₹{orderData.deliveryCharge} delivery)
+              </span>
+            ) : (
+              <span className="text-[11px] text-green-700 font-semibold hidden sm:inline">(Free Delivery)</span>
+            )}
           </div>
           <div className="flex items-baseline gap-1">
             <span className="text-xs text-darkbrown-600 font-medium">Total:</span>

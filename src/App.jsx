@@ -31,6 +31,22 @@ export default function App() {
   const [isAdminDashboardOpen, setIsAdminDashboardOpen] = useState(false);
   const [isAdminLoggedIn, setIsAdminLoggedIn] = useState(false);
 
+  // Dynamic Top Announcement Text (customizable via Admin Panel)
+  const [announcementText, setAnnouncementText] = useState(() => {
+    try {
+      const saved = localStorage.getItem('sherubai_announcement');
+      if (saved) return saved;
+    } catch (e) {}
+    return '🚀 Application Coming Soon! • Exclusive Gift Boxes Available for Order Now 🎉';
+  });
+
+  const handleUpdateAnnouncement = (newText) => {
+    setAnnouncementText(newText);
+    try {
+      localStorage.setItem('sherubai_announcement', newText);
+    } catch (e) {}
+  };
+
   // Orders list initialized via orderService (persisted in localStorage)
   const [ordersList, setOrdersList] = useState(() => orderService.getOrders());
 
@@ -105,6 +121,7 @@ export default function App() {
         onOpenTrackOrder={() => handleOpenTracking('')}
         onOpenDirectOrder={() => handleBuyNow(PRODUCTS[1])} // Silver Box as sweet default
         onSecretAdminTrigger={handleSecretAdminTrigger}
+        announcementText={announcementText}
       />
 
       <main className="flex-1">
@@ -206,6 +223,8 @@ export default function App() {
           onDeleteOrder={handleDeleteOrder}
           onClose={() => setIsAdminDashboardOpen(false)}
           onLogout={handleAdminLogout}
+          announcementText={announcementText}
+          onUpdateAnnouncement={handleUpdateAnnouncement}
         />
       )}
 

@@ -2,15 +2,36 @@ import React, { useState } from 'react';
 import { 
   Package, Search, Filter, Download, ArrowLeft, LogOut, CheckCircle2, 
   Clock, Truck, MapPin, Phone, User, Gift, Eye, Edit3, Trash2, Printer, 
-  Sparkles, RefreshCw, X, Check, DollarSign, ChevronRight
+  Sparkles, RefreshCw, X, Check, DollarSign, ChevronRight, BellRing
 } from 'lucide-react';
 import { ORDER_STATUS_STEPS, orderService } from '../../services/orderService';
 import ShippingLabelModal from './ShippingLabelModal';
 import brandLogo from '../../assets/sheru-baai-logo.jpg';
 
-export default function AdminDashboard({ orders, onUpdateOrder, onDeleteOrder, onClose, onLogout }) {
+export default function AdminDashboard({ 
+  orders, 
+  onUpdateOrder, 
+  onDeleteOrder, 
+  onClose, 
+  onLogout,
+  announcementText = '🚀 Sheru Baai Mobile Application Coming Soon! • Handcrafted Luxury Gift Boxes Available for Order Now 🎉',
+  onUpdateAnnouncement
+}) {
   const [searchQuery, setSearchQuery] = useState('');
   const [selectedStatusFilter, setSelectedStatusFilter] = useState('ALL');
+  
+  // Announcement Editor State
+  const [announcementInput, setAnnouncementInput] = useState(announcementText);
+  const [announcementSaved, setAnnouncementSaved] = useState(false);
+
+  const handleSaveAnnouncement = (e) => {
+    e.preventDefault();
+    if (onUpdateAnnouncement) {
+      onUpdateAnnouncement(announcementInput);
+      setAnnouncementSaved(true);
+      setTimeout(() => setAnnouncementSaved(false), 2500);
+    }
+  };
   
   // Modals inside Admin
   const [selectedOrderDetails, setSelectedOrderDetails] = useState(null);
@@ -166,6 +187,79 @@ export default function AdminDashboard({ orders, onUpdateOrder, onDeleteOrder, o
             </div>
             <span className="text-[10px] text-green-800 font-semibold">Smiles Created</span>
           </div>
+        </div>
+
+        {/* Website Top Announcement Bar Manager */}
+        <div className="p-5 sm:p-6 rounded-2xl bg-gradient-to-r from-cream-100 via-amber-50/70 to-cream-100 border-2 border-gold-400 shadow-sm space-y-4">
+          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3 pb-3 border-b border-gold-300/60">
+            <div className="flex items-center gap-2.5">
+              <div className="w-9 h-9 rounded-xl bg-burgundy-600 text-cream-100 flex items-center justify-center shadow-xs">
+                <BellRing className="w-5 h-5 text-gold-300" />
+              </div>
+              <div>
+                <h3 className="font-serif text-sm sm:text-base font-bold text-darkbrown-900 flex items-center gap-2">
+                  Top Announcement Notification Banner
+                  <span className="text-[10px] px-2 py-0.5 rounded-full bg-gold-200 text-darkbrown-800 font-sans font-bold uppercase">
+                    Live On Website
+                  </span>
+                </h3>
+                <p className="text-xs text-darkbrown-600">
+                  Custom message displayed at the very top of the website navbar across all devices.
+                </p>
+              </div>
+            </div>
+
+            {announcementSaved && (
+              <span className="inline-flex items-center gap-1.5 px-3 py-1 rounded-full bg-green-100 border border-green-300 text-green-800 text-xs font-bold animate-in fade-in">
+                <Check className="w-3.5 h-3.5 text-green-600" /> Saved & Updated Live!
+              </span>
+            )}
+          </div>
+
+          <form onSubmit={handleSaveAnnouncement} className="space-y-3">
+            <div className="flex flex-col sm:flex-row gap-3">
+              <input
+                type="text"
+                value={announcementInput}
+                onChange={(e) => setAnnouncementInput(e.target.value)}
+                placeholder="e.g. 🚀 Application Coming Soon! • Handcrafted Luxury Gift Boxes Available for Order Now 🎉"
+                className="flex-1 px-4 py-2.5 rounded-xl border border-gold-400 bg-white text-xs sm:text-sm font-medium focus:outline-none focus:ring-2 focus:ring-burgundy-500 shadow-xs"
+              />
+              <button
+                type="submit"
+                className="bg-burgundy-600 hover:bg-burgundy-700 active:bg-burgundy-800 text-cream-100 px-6 py-2.5 rounded-xl text-xs sm:text-sm font-bold shadow-sm transition-all flex items-center justify-center gap-2 flex-shrink-0"
+              >
+                <Sparkles className="w-4 h-4 text-gold-300" />
+                <span>Save Announcement</span>
+              </button>
+            </div>
+
+            {/* Quick Presets */}
+            <div className="flex flex-wrap items-center gap-2 pt-1">
+              <span className="text-[11px] font-bold text-darkbrown-600">Quick Presets:</span>
+              <button
+                type="button"
+                onClick={() => setAnnouncementInput('🚀 Sheru Baai Mobile Application Coming Soon! • Order Online Now')}
+                className="text-[11px] px-2.5 py-1 rounded-lg bg-white border border-gold-300 hover:bg-gold-50 text-darkbrown-800 font-medium transition-colors"
+              >
+                🚀 App Coming Soon
+              </button>
+              <button
+                type="button"
+                onClick={() => setAnnouncementInput('🎉 Grand Emperor Collection Live • Free Pan-India Delivery on Luxury & Royal Boxes')}
+                className="text-[11px] px-2.5 py-1 rounded-lg bg-white border border-gold-300 hover:bg-gold-50 text-darkbrown-800 font-medium transition-colors"
+              >
+                🎁 Emperor Collection
+              </button>
+              <button
+                type="button"
+                onClick={() => setAnnouncementInput('🦁 Sheru Baai Atelier • Hand-Packed with Love & Personalized Wax-Sealed Letters')}
+                className="text-[11px] px-2.5 py-1 rounded-lg bg-white border border-gold-300 hover:bg-gold-50 text-darkbrown-800 font-medium transition-colors"
+              >
+                🦁 Atelier Love
+              </button>
+            </div>
+          </form>
         </div>
 
         {/* Search, Filter & Action Toolbar */}

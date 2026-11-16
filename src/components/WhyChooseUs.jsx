@@ -10,8 +10,8 @@ export default function WhyChooseUs({ onSelectBoxClick }) {
     },
     {
       icon: '🚚',
-      title: 'Free Express Pan-India Delivery',
-      desc: 'Seamless air & ground shipping to 20,000+ PIN codes across all Indian states and Union Territories at zero extra cost.'
+      title: 'Express Pan-India Delivery',
+      desc: 'Seamless air & ground shipping to 20,000+ PIN codes across all Indian states and Union Territories with real-time milestone tracking.'
     },
     {
       icon: '💌',
@@ -31,7 +31,7 @@ export default function WhyChooseUs({ onSelectBoxClick }) {
     {
       icon: '❤️',
       title: 'Priced for Every Heart',
-      desc: 'Thoughtfully tier-priced from ₹99 Mini to ₹999 Royal Premium so everyone can spread happiness without hesitation.'
+      desc: 'Thoughtfully tier-priced from ₹99 Mini to ₹1,999 Royal Emperor Box so everyone can spread happiness without hesitation.'
     }
   ];
 

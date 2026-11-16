@@ -81,7 +81,7 @@ export default function StorySection({ onSelectBoxClick }) {
             <div className="p-4 rounded-xl bg-white/60 border border-gold-200">
               <div className="w-10 h-10 rounded-full bg-gold-100 text-gold-700 flex items-center justify-center mx-auto mb-2 font-bold font-serif">1</div>
               <h4 className="font-serif font-bold text-sm text-darkbrown-900">Choose A Box</h4>
-              <p className="text-xs text-darkbrown-600 mt-1">From ₹99 Mini to ₹999 Royal Premium</p>
+              <p className="text-xs text-darkbrown-600 mt-1">From ₹99 Mini to ₹1,999 Royal Emperor Box</p>
             </div>
             <div className="p-4 rounded-xl bg-white/60 border border-gold-200">
               <div className="w-10 h-10 rounded-full bg-burgundy-100 text-burgundy-600 flex items-center justify-center mx-auto mb-2 font-bold font-serif">2</div>

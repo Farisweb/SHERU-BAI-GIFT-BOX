@@ -1,5 +1,5 @@
 import React from 'react';
-import { Star, CheckCircle2, Eye, Sparkles, ArrowRight } from 'lucide-react';
+import { Star, CheckCircle2, Eye, Sparkles, ArrowRight, Truck } from 'lucide-react';
 
 export default function ProductCard({ product, onBuyNow, onViewDetails }) {
   return (
@@ -12,10 +12,14 @@ export default function ProductCard({ product, onBuyNow, onViewDetails }) {
         </span>
       </div>
 
-      {/* Free Delivery Tag */}
-      <div className="absolute top-4 right-4 z-10 bg-cream-50/90 backdrop-blur-sm border border-gold-400/40 text-gold-800 text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm">
-        <Sparkles className="w-3 h-3 text-gold-500" />
-        Free Shipping
+      {/* Dynamic Delivery Tag */}
+      <div className={`absolute top-4 right-4 z-10 backdrop-blur-sm border text-[10px] font-bold px-2.5 py-1 rounded-full flex items-center gap-1 shadow-sm ${
+        product.deliveryFee === 0 
+          ? 'bg-green-100/95 border-green-300 text-green-800' 
+          : 'bg-cream-50/95 border-gold-400/50 text-darkbrown-800'
+      }`}>
+        <Truck className="w-3 h-3 text-gold-600" />
+        {product.deliveryFee === 0 ? 'FREE Delivery' : `+₹${product.deliveryFee} Delivery`}
       </div>
 
       {/* Product Image Container */}
@@ -81,13 +85,13 @@ export default function ProductCard({ product, onBuyNow, onViewDetails }) {
         <div className="pt-4 border-t border-gold-500/20 space-y-3">
           <div className="flex items-baseline justify-between">
             <div>
-              <span className="text-xs text-darkbrown-600 font-medium">All-Inclusive Price:</span>
+              <span className="text-xs text-darkbrown-600 font-medium">Box Price:</span>
               <div className="flex items-baseline gap-1.5">
                 <span className="font-serif text-2xl sm:text-3xl font-bold text-darkbrown-900">
                   ₹{product.price}
                 </span>
-                <span className="text-[11px] text-burgundy-600 font-semibold">
-                  (Incl. Tax & Delivery)
+                <span className={`text-[11px] font-semibold ${product.deliveryFee === 0 ? 'text-green-700' : 'text-burgundy-600'}`}>
+                  {product.deliveryFee === 0 ? '(Free Delivery)' : `(+₹${product.deliveryFee} Delivery)`}
                 </span>
               </div>
             </div>

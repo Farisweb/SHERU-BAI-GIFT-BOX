@@ -3,6 +3,7 @@ export const PRODUCTS = [
     id: 'mini-box',
     name: 'Mini Box',
     price: 99,
+    deliveryFee: 69,
     tagline: 'A pocket-sized gesture of pure joy',
     icon: '🎁',
     badge: 'Popular Choice',
@@ -29,6 +30,7 @@ export const PRODUCTS = [
     id: 'silver-box',
     name: 'Silver Box',
     price: 199,
+    deliveryFee: 69,
     tagline: 'Subtle elegance crafted for special moments',
     icon: '🥈',
     badge: 'Best Value',
@@ -55,6 +57,7 @@ export const PRODUCTS = [
     id: 'gold-box',
     name: 'Gold Box',
     price: 499,
+    deliveryFee: 49,
     tagline: 'Opulence and warmth in every handcrafted detail',
     icon: '🥇',
     badge: 'Customer Favorite',
@@ -82,6 +85,7 @@ export const PRODUCTS = [
     id: 'premium-box',
     name: 'Premium Box',
     price: 999,
+    deliveryFee: 0,
     tagline: 'The pinnacle of royal luxury & emotion',
     icon: '💎',
     badge: 'Ultimate Luxury',
@@ -104,6 +108,64 @@ export const PRODUCTS = [
       { name: 'Gourmet Feast', desc: 'Imported Belgian truffles & Kashmiri saffron almonds' },
       { name: 'Signature Fragrance', desc: 'Oudh & Rose ambient room essence with reed diffusers' },
       { name: 'Personal Letter', desc: 'Heavy textured parchment with custom embossed wax crest' }
+    ]
+  },
+  {
+    id: 'luxury-box',
+    name: 'Luxury Box',
+    price: 1499,
+    deliveryFee: 0,
+    tagline: 'Exquisite regal curation for extraordinary celebrations',
+    icon: '👑',
+    badge: 'Regal Collection',
+    badgeColor: 'bg-purple-800 text-gold-300',
+    rating: 5.0,
+    reviewsCount: 275,
+    description: 'An elite royal ensemble handcrafted for defining life moments. Features imported European confections, pure 24K gold foil accents, and artisanal ambient fragrances.',
+    image: 'https://images.unsplash.com/photo-1522335789203-aabd1fc54bc9?auto=format&fit=crop&w=800&q=80',
+    colorScheme: 'from-purple-100 to-amber-50',
+    highlights: [
+      'Handcrafted lacquered wooden chest with gold metallic crest',
+      'Swiss artisanal praline selection & roasted macadamias',
+      'Pure brass Sheru Baai Royal Lion paperweight & seal',
+      'French lavender & imperial sandalwood luxury room diffuser',
+      'Handwritten calligraphy parchment with 24K gold wax seal'
+    ],
+    details: [
+      { name: 'Lacquered Royal Chest', desc: 'Piano-finish black & gold chest with velvet interior' },
+      { name: 'Royal Confections', desc: 'Swiss artisan pralines & honey-glazed jumbo nuts' },
+      { name: 'Signature Keepsake', desc: 'Solid cast brass White Lion paperweight figurine' },
+      { name: 'Ambient Diffuser', desc: 'Fine French botanical glass diffuser with reeds' },
+      { name: 'Imperial Letter', desc: 'Hand-pressed linen paper with gold foil & wax seal' }
+    ]
+  },
+  {
+    id: 'royal-box',
+    name: 'Royal Box',
+    price: 1999,
+    deliveryFee: 0,
+    tagline: 'The supreme emperor edition of heartfelt gifting',
+    icon: '🦁',
+    badge: 'Grand Emperor Edition',
+    badgeColor: 'bg-gradient-to-r from-amber-600 via-gold-500 to-burgundy-600 text-white',
+    rating: 5.0,
+    reviewsCount: 198,
+    description: 'The monumental coronation gift box. Handcrafted with uncompromising royal extravagance, commemorative bespoke souvenirs, and unparalleled luxury delicacies.',
+    image: 'https://images.unsplash.com/photo-1513885535751-8b9238bd345a?auto=format&fit=crop&w=800&q=80',
+    colorScheme: 'from-yellow-100 via-gold-50 to-burgundy-50',
+    highlights: [
+      'Heirloom dual-tier velvet & leatherette trunk with vintage brass lock',
+      'Pure brass 3D Crowned Sheru Baai commemorative statue',
+      'Tri-flavor European confectionary vault: truffles, dragees & saffron pistachios',
+      'Artisanal imperial amber oudh candle & car freshener pendant',
+      'Custom gold leaf royal scroll personalized with your words'
+    ],
+    details: [
+      { name: 'Dual-Tier Trunk', desc: 'Handmade luxury trunk with monogrammed lock & keys' },
+      { name: 'Emperor Keepsake', desc: 'Heavy solid brass crowned White Lion sculpture' },
+      { name: 'Gourmet Vault', desc: 'Three airtight gold jars of imported Belgian delights' },
+      { name: 'Imperial Fragrance', desc: 'Royal Amber Oudh candle & gold pendant diffuser' },
+      { name: 'Royal Scroll', desc: 'Hand-rolled textured royal scroll tied with silk ribbon' }
     ]
   }
 ];

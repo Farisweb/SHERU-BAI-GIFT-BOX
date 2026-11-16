@@ -106,7 +106,13 @@ export default function OrderConfirmationModal({ order, onClose, onTrackOrder })
                 <span className="text-xl">{order.product.icon}</span>
                 <div>
                   <div className="font-serif font-bold text-sm text-darkbrown-900">{order.product.name}</div>
-                  <div className="text-burgundy-600 font-bold">₹{order.amount} (Free Shipping)</div>
+                  <div className="text-burgundy-600 font-bold">
+                    {order.deliveryCharge && order.deliveryCharge > 0 ? (
+                      <span>₹{order.product.price} + ₹{order.deliveryCharge} Del. (Total: ₹{order.amount})</span>
+                    ) : (
+                      <span>₹{order.amount} (Free Express Delivery)</span>
+                    )}
+                  </div>
                 </div>
               </div>
               <p className="text-[11px] text-darkbrown-600">

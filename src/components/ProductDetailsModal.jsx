@@ -54,8 +54,8 @@ export default function ProductDetailsModal({ product, onClose, onBuyNow }) {
               <span className="font-serif text-3xl font-bold text-darkbrown-900">
                 ₹{product.price}
               </span>
-              <span className="block text-[11px] text-gold-700 font-semibold">
-                Free Delivery Included
+              <span className={`block text-[11px] font-semibold ${product.deliveryFee === 0 ? 'text-green-700' : 'text-gold-700'}`}>
+                {product.deliveryFee === 0 ? 'FREE Express Delivery' : `+ ₹${product.deliveryFee} Express Delivery`}
               </span>
             </div>
           </div>
@@ -101,7 +101,7 @@ export default function ProductDetailsModal({ product, onClose, onBuyNow }) {
               }}
               className="w-full bg-burgundy-500 hover:bg-burgundy-600 text-cream-100 font-bold py-3.5 px-6 rounded-xl shadow-md hover:shadow-burgundy-glow transition-all flex items-center justify-center gap-2 text-sm tracking-wide"
             >
-              <span>BUY NOW • ₹{product.price}</span>
+              <span>BUY NOW • ₹{product.price} {product.deliveryFee > 0 ? `(+₹${product.deliveryFee} Del.)` : ''}</span>
               <ArrowRight className="w-4 h-4 text-gold-300" />
             </button>
             <button

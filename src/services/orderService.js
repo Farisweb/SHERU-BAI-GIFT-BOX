@@ -157,7 +157,9 @@ export const orderService = {
       'Order ID',
       'Placed At',
       'Box Tier',
-      'Price (INR)',
+      'Box Price (INR)',
+      'Delivery Charge (INR)',
+      'Total Amount (INR)',
       'Payment Method',
       'Payment Status',
       'Delivery Status',
@@ -179,11 +181,15 @@ export const orderService = {
       const statusTitle = ORDER_STATUS_STEPS[o.currentStep]?.title || 'Confirmed';
       const cleanAddress = (o.deliveryAddress?.addressLine || '').replace(/[\n\r,]/g, ' ');
       const cleanMessage = (o.giftMessage || '').replace(/[\n\r,]/g, ' ');
+      const boxPrice = o.productPrice || o.product?.price || o.amount;
+      const deliveryCharge = o.deliveryCharge !== undefined ? o.deliveryCharge : (o.product?.deliveryFee ?? 0);
 
       return [
         o.orderId,
         new Date(o.placedAt).toLocaleString(),
         o.product?.name || 'Box',
+        boxPrice,
+        deliveryCharge,
         o.amount,
         o.paymentMethod || 'UPI',
         o.paymentStatus || 'SUCCESS',

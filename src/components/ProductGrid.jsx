@@ -26,8 +26,8 @@ export default function ProductGrid({ onBuyNow, onViewDetails }) {
         <div className="w-24 h-1 bg-gradient-to-r from-gold-300 via-gold-500 to-burgundy-500 mx-auto rounded-full mt-2" />
       </div>
 
-      {/* 4 Products Grid */}
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 lg:gap-8">
+      {/* 6 Products Grid */}
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 lg:gap-8">
         {PRODUCTS.map((product) => (
           <ProductCard 
             key={product.id}
